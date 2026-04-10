@@ -43,32 +43,31 @@ export function ScreenFinalTracker() {
   const canProceed = allPlayersValid && allRacesValid;
 
   const renderGroup = (title: string, playerIds: string[], group: 'kids' | 'eltern') => (
-    <div>
+    <>
       <tr>
-        <td colSpan={6} className="pt-4 pb-2">
+        <td colSpan={6} className="pt-3 pb-1">
           <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{title}</span>
         </td>
       </tr>
       {playerIds.map(id => {
-        const player = getPlayer(id);
         const races = getRaces(id);
         const count = races.filter(Boolean).length;
         const warning = count < 2;
 
         return (
           <tr key={id} className="border-t border-border/30">
-            <td className="py-2.5 pr-4">
+            <td className="py-1.5 pr-4">
               <PlayerAvatar playerId={id} size="sm" />
             </td>
             {RACES.map((_, ri) => {
               const checked = races[ri];
               const disabled = isDisabled(id, ri, group);
               return (
-                <td key={ri} className="text-center py-2.5">
+                <td key={ri} className="text-center py-1.5">
                   <button
                     onClick={() => toggleRace(id, ri)}
                     disabled={disabled}
-                    className={`w-8 h-8 rounded-md border-2 transition-all ${
+                    className={`w-7 h-7 rounded-md border-2 transition-all ${
                       checked
                         ? 'bg-gold border-gold text-primary-foreground'
                         : disabled
@@ -77,7 +76,7 @@ export function ScreenFinalTracker() {
                     }`}
                   >
                     {checked && (
-                      <svg className="w-4 h-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <svg className="w-3.5 h-3.5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     )}
@@ -85,7 +84,7 @@ export function ScreenFinalTracker() {
                 </td>
               );
             })}
-            <td className="text-center py-2.5">
+            <td className="text-center py-1.5">
               <span className={`text-base font-bold ${warning ? 'text-destructive' : 'text-gold'}`}>
                 {count}
               </span>
@@ -93,17 +92,17 @@ export function ScreenFinalTracker() {
           </tr>
         );
       })}
-    </div>
+    </>
   );
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Grand Final — Renn-Tracker</h2>
-      <p className="text-muted-foreground mb-6">
+    <div className="max-w-3xl mx-auto py-6 px-4 slide-up">
+      <h2 className="text-xl font-bold text-gold mb-1">Grand Final — Renn-Tracker</h2>
+      <p className="text-muted-foreground mb-4">
         Trage ein, welcher Spieler welches Rennen fährt. Pro Rennen genau 2 Kids und 2 Eltern.
       </p>
 
-      <div className="bg-card rounded-xl p-5 border border-border mb-6">
+      <div className="bg-card rounded-xl p-4 border border-border mb-4">
         <table className="w-full text-sm">
           <thead>
             <tr>
@@ -120,13 +119,13 @@ export function ScreenFinalTracker() {
           </tbody>
           <tfoot>
             <tr className="border-t border-border">
-              <td className="pt-3 text-xs text-muted-foreground">Pro Rennen</td>
+              <td className="pt-2 text-xs text-muted-foreground">Pro Rennen</td>
               {RACES.map((_, ri) => {
                 const k = kidsPerRace[ri];
                 const e = elternPerRace[ri];
                 const valid = k === 2 && e === 2;
                 return (
-                  <td key={ri} className="text-center pt-3">
+                  <td key={ri} className="text-center pt-2">
                     <span className={`text-xs font-medium ${valid ? 'text-gold' : 'text-muted-foreground'}`}>
                       {k + e}/4
                     </span>
@@ -140,10 +139,10 @@ export function ScreenFinalTracker() {
       </div>
 
       {!allPlayersValid && (
-        <p className="text-destructive text-sm mb-4">⚠ Jeder Spieler muss genau 2 Rennen fahren.</p>
+        <p className="text-destructive text-sm mb-3">⚠ Jeder Spieler muss genau 2 Rennen fahren.</p>
       )}
       {allPlayersValid && !allRacesValid && (
-        <p className="text-destructive text-sm mb-4">⚠ Jedes Rennen braucht genau 2 Kids und 2 Eltern.</p>
+        <p className="text-destructive text-sm mb-3">⚠ Jedes Rennen braucht genau 2 Kids und 2 Eltern.</p>
       )}
 
       <div className="flex justify-between">
