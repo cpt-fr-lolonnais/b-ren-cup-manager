@@ -99,14 +99,23 @@ function DropSlot({
 
 /* ── Main component ── */
 export function ScreenRound2Pairing() {
-  const { setState, setScreen } = useTournamentStore();
+  const { state, setState, setScreen } = useTournamentStore();
 
-  const [placements, setPlacements] = useState<Record<SlotId, TeamId | null>>({
-    'gp1-kids': null,
-    'gp1-eltern': null,
-    'gp2-kids': null,
-    'gp2-eltern': null,
-  });
+  // Rehydrate placements from store if pairing exists (for back-navigation)
+  const initPlacements = (): Record<SlotId, TeamId | null> => {
+    const p = state.round2.pairing;
+    if (p && typeof p === 'object' && 'gp1' in p) {
+      return {
+        'gp1-kids': `kids${p.gp1.kidsTeam}` as TeamId,
+        'gp1-eltern': `eltern${p.gp1.elternTeam}` as TeamId,
+        'gp2-kids': `kids${p.gp2.kidsTeam}` as TeamId,
+        'gp2-eltern': `eltern${p.gp2.elternTeam}` as TeamId,
+      };
+    }
+    return { 'gp1-kids': null, 'gp1-eltern': null, 'gp2-kids': null, 'gp2-eltern': null };
+  };
+
+  const [placements, setPlacements] = useState<Record<SlotId, TeamId | null>>(initPlacements);
 
   const [activeId, setActiveId] = useState<TeamId | null>(null);
   const activeType = activeId ? TEAMS[activeId].type : null;
@@ -115,6 +124,7 @@ export function ScreenRound2Pairing() {
   const poolTeams = (Object.keys(TEAMS) as TeamId[]).filter(t => !placedTeams.has(t));
 
   const allFilled = Object.values(placements).every(Boolean);
+
 
   const handleDragStart = useCallback((e: DragStartEvent) => {
     setActiveId(e.active.id as TeamId);
