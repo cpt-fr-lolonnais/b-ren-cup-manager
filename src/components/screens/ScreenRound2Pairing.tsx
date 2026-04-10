@@ -117,7 +117,15 @@ export function ScreenRound2Pairing() {
 
   const [placements, setPlacements] = useState<Record<SlotId, TeamId | null>>(initPlacements);
 
-  const handleDragStart = useCallback((e: DragStartEvent) => {
+  const [activeId, setActiveId] = useState<TeamId | null>(null);
+  const activeType = activeId ? TEAMS[activeId].type : null;
+
+  const placedTeams = new Set(Object.values(placements).filter(Boolean) as TeamId[]);
+  const poolTeams = (Object.keys(TEAMS) as TeamId[]).filter(t => !placedTeams.has(t));
+
+  const allFilled = Object.values(placements).every(Boolean);
+
+
     setActiveId(e.active.id as TeamId);
   }, []);
 
