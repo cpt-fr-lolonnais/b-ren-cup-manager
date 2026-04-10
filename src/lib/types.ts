@@ -11,9 +11,10 @@ export interface TournamentState {
     winnerTeam: 'kids' | 'eltern' | 'tie' | null;
   };
   round2: {
-    // Which kids team faces which eltern team
-    // pairing[0] = kids team index that faces eltern team 1
-    pairing: [number, number] | null; // e.g. [1, 2] means kids1 vs eltern1, kids2 vs eltern2
+    pairing: {
+      gp1: { kidsTeam: 1 | 2; elternTeam: 1 | 2 };
+      gp2: { kidsTeam: 1 | 2; elternTeam: 1 | 2 };
+    } | null;
     gp1Ranking: RoundRanking;
     gp2Ranking: RoundRanking;
     completed: boolean;

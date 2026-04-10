@@ -38,18 +38,24 @@ function getTeamPointsFromRanking(
   return { kids, eltern };
 }
 
+function getKidsTeam(num: 1 | 2) {
+  return num === 1 ? MIXED_KIDS_TEAM_1 : MIXED_KIDS_TEAM_2;
+}
+
+function getElternTeam(num: 1 | 2) {
+  return num === 1 ? MIXED_ELTERN_TEAM_1 : MIXED_ELTERN_TEAM_2;
+}
+
 export function getRound2GP1Players(state: TournamentState) {
   if (!state.round2.pairing) return { kids: [] as string[], eltern: [] as string[] };
-  const [kidsTeamForEltern1] = state.round2.pairing;
-  const kidsTeam = kidsTeamForEltern1 === 1 ? MIXED_KIDS_TEAM_1 : MIXED_KIDS_TEAM_2;
-  return { kids: kidsTeam, eltern: MIXED_ELTERN_TEAM_1 };
+  const { gp1 } = state.round2.pairing;
+  return { kids: getKidsTeam(gp1.kidsTeam), eltern: getElternTeam(gp1.elternTeam) };
 }
 
 export function getRound2GP2Players(state: TournamentState) {
   if (!state.round2.pairing) return { kids: [] as string[], eltern: [] as string[] };
-  const [kidsTeamForEltern1] = state.round2.pairing;
-  const kidsTeam = kidsTeamForEltern1 === 1 ? MIXED_KIDS_TEAM_2 : MIXED_KIDS_TEAM_1;
-  return { kids: kidsTeam, eltern: MIXED_ELTERN_TEAM_2 };
+  const { gp2 } = state.round2.pairing;
+  return { kids: getKidsTeam(gp2.kidsTeam), eltern: getElternTeam(gp2.elternTeam) };
 }
 
 export function getRound2Points(state: TournamentState): { kids: number; eltern: number } {
