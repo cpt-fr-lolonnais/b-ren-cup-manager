@@ -126,6 +126,7 @@ export function ScreenRound2Pairing() {
   const allFilled = Object.values(placements).every(Boolean);
 
 
+  const handleDragStart = useCallback((e: DragStartEvent) => {
     setActiveId(e.active.id as TeamId);
   }, []);
 
