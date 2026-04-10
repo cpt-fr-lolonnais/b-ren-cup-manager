@@ -1,5 +1,4 @@
 import { useTournamentStore } from '@/lib/store';
-import { getPlayer } from '@/lib/players';
 import { PlayerAvatar } from '@/components/PlayerAvatar';
 
 const KIDS_ORDER = ['milena', 'elina', 'valerio', 'mio'];
