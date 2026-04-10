@@ -56,7 +56,6 @@ export function ScreenFinalResult() {
       <div className="space-y-3 mb-8">
         {SLOTS.map(slotId => {
           const currentRank = ranking[slotId];
-          const usedRanks = new Set(Object.values(ranking));
 
           return (
             <div key={slotId} className="flex items-center gap-4 bg-card rounded-lg p-4 border border-border">
