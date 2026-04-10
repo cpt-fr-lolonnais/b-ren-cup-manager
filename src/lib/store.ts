@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { TournamentState, INITIAL_STATE } from './types';
 import { supabase } from '@/integrations/supabase/client';
+import type { Json } from '@/integrations/supabase/types';
 
 const SINGLETON_ID = '00000000-0000-0000-0000-000000000001';
 let saveTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -21,7 +22,7 @@ function debouncedSave(state: TournamentState) {
   saveTimeout = setTimeout(async () => {
     await supabase.from('tournament_state').upsert({
       id: SINGLETON_ID,
-      state: state as any,
+      state: state as unknown as Json,
       updated_at: new Date().toISOString(),
     });
   }, 500);
@@ -56,7 +57,7 @@ export const useTournamentStore = create<TournamentStore>((set, get) => ({
       .eq('id', SINGLETON_ID)
       .maybeSingle();
 
-    if (data?.state) {
+    if (data && data.state) {
       const saved = data.state as unknown as TournamentState;
       set({ state: saved, loading: false, loaded: true, hasSavedState: true });
     } else {
