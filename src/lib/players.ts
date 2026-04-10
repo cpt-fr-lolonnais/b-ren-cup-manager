@@ -14,7 +14,7 @@ export const PLAYERS: Player[] = [
   { id: 'elina', name: 'Elina', initials: 'er', role: 'girl', family: 'A', team: 'kids', color: 'bg-pink-300' },
   { id: 'mio', name: 'Mio', initials: 'mr', role: 'boy', family: 'A', team: 'kids', color: 'bg-blue-300' },
   { id: 'carmen', name: 'Carmen', initials: 'CB', role: 'mom', family: 'B', team: 'eltern', color: 'bg-pink-500' },
-  { id: 'micha', name: 'Micha', initials: 'MB', role: 'dad', family: 'B', team: 'eltern', color: 'bg-blue-500' },
+  { id: 'micha', name: 'Michael', initials: 'MB', role: 'dad', family: 'B', team: 'eltern', color: 'bg-blue-500' },
   { id: 'milena', name: 'Milena', initials: 'mb', role: 'girl', family: 'B', team: 'kids', color: 'bg-pink-300' },
   { id: 'valerio', name: 'Valerio', initials: 'vb', role: 'boy', family: 'B', team: 'kids', color: 'bg-blue-300' },
 ];
@@ -28,7 +28,7 @@ export const getPlayer = (id: string) => PLAYERS.find(p => p.id === id)!;
 export const MIXED_KIDS_TEAM_1 = ['mio', 'milena']; // Mio + Milena
 export const MIXED_KIDS_TEAM_2 = ['valerio', 'elina']; // Valerio + Elina
 export const MIXED_ELTERN_TEAM_1 = ['maethu', 'carmen']; // Mäthu + Carmen
-export const MIXED_ELTERN_TEAM_2 = ['nicole', 'micha']; // Nicole + Micha
+export const MIXED_ELTERN_TEAM_2 = ['nicole', 'micha']; // Nicole + Michael
 
 // Gender teams
 export const JUNGS = ['mio', 'valerio'];
