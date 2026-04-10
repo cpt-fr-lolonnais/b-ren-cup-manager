@@ -12,7 +12,7 @@ interface RankingInputProps {
 const DEFAULT_POINTS: Record<number, number> = { 1: 4, 2: 3, 3: 2, 4: 1 };
 
 export function RankingInput({ playerIds, ranking, onChange, pointsMap = DEFAULT_POINTS }: RankingInputProps) {
-  const usedRanks = new Set(Object.values(ranking));
+  
 
   const setRank = (playerId: string, rank: number) => {
     const newRanking = { ...ranking };
