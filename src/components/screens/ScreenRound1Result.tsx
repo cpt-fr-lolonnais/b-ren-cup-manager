@@ -29,10 +29,14 @@ export function ScreenRound1Result() {
 
       <div className="bg-card rounded-xl p-6 border border-gold mb-10">
         <p className="text-xl">
-          <span className="text-gold font-bold">{winnerName}</span> gewinnt das Einwärmen →{' '}
-          <span className="text-gold font-bold">
-            {winner === 'tie' ? '+1 Punkt pro Team' : '+2 Punkte'}
-          </span>
+          {winner === 'tie' ? (
+            <span className="text-gold font-bold">Unentschieden — 1 Punkt pro Team</span>
+          ) : (
+            <>
+              <span className="text-gold font-bold">{winnerName}</span> gewinnt das Einwärmen →{' '}
+              <span className="text-gold font-bold">+2 Punkte</span>
+            </>
+          )}
         </p>
       </div>
 
