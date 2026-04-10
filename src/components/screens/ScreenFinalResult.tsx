@@ -56,7 +56,6 @@ export function ScreenFinalResult() {
       <div className="space-y-3 mb-8">
         {SLOTS.map(slotId => {
           const currentRank = ranking[slotId];
-          const usedRanks = new Set(Object.values(ranking));
 
           return (
             <div key={slotId} className="flex items-center gap-4 bg-card rounded-lg p-4 border border-border">
@@ -68,18 +67,25 @@ export function ScreenFinalResult() {
                       key={rank}
                       onClick={() => {
                         const newRanking = { ...ranking };
-                        for (const [s, r] of Object.entries(newRanking)) {
-                          if (r === rank && s !== slotId) delete newRanking[s];
+                        if (newRanking[slotId] === rank) {
+                          delete newRanking[slotId];
+                        } else {
+                          const previousRankOfClickedSlot = newRanking[slotId];
+                          const otherSlot = Object.entries(newRanking).find(([s, r]) => r === rank && s !== slotId)?.[0];
+                          if (otherSlot) {
+                            if (previousRankOfClickedSlot !== undefined) {
+                              newRanking[otherSlot] = previousRankOfClickedSlot;
+                            } else {
+                              delete newRanking[otherSlot];
+                            }
+                          }
+                          newRanking[slotId] = rank;
                         }
-                        newRanking[slotId] = rank;
                         setState(prev => ({ final: { ...prev.final, slotRanking: newRanking } }));
                       }}
-                      disabled={usedRanks.has(rank) && currentRank !== rank}
                       className={`w-10 h-10 rounded-lg font-bold text-lg transition-colors ${
                         currentRank === rank
                           ? 'bg-gold text-primary-foreground'
-                          : usedRanks.has(rank) && currentRank !== rank
-                          ? 'bg-muted/30 text-muted-foreground/30 cursor-not-allowed'
                           : 'bg-secondary text-foreground hover:bg-gold/20'
                       }`}
                     >
