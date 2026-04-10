@@ -59,6 +59,10 @@ export const useTournamentStore = create<TournamentStore>((set, get) => ({
 
     if (data && data.state) {
       const saved = data.state as unknown as TournamentState;
+      // Migrate legacy pairing format (array → object)
+      if (saved.round2 && Array.isArray(saved.round2.pairing)) {
+        saved.round2.pairing = null;
+      }
       set({ state: saved, loading: false, loaded: true, hasSavedState: true });
     } else {
       set({ loading: false, loaded: true, hasSavedState: false });

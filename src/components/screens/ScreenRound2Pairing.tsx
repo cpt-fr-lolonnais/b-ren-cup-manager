@@ -139,28 +139,12 @@ export function ScreenRound2Pairing() {
     setPlacements({ 'gp1-kids': null, 'gp1-eltern': null, 'gp2-kids': null, 'gp2-eltern': null });
 
   const confirm = () => {
-    // Convert to store format: pairing[0] = kids team index facing eltern team 1
-    const kidsInGp1 = placements['gp1-kids'];
-    const elternInGp1 = placements['gp1-eltern'];
+    const toNum = (id: TeamId): 1 | 2 => id.endsWith('1') ? 1 : 2;
 
-    // Determine which kids team number (1 or 2) faces eltern team 1
-    // GP1 kids team + GP1 eltern team form a matchup
-    // We need: pairing[0] = kids team number facing eltern team 1
-    const kidsTeamNum = kidsInGp1 === 'kids1' ? 1 : 2;
-    const elternInGp1Num = elternInGp1 === 'eltern1' ? 1 : 2;
-
-    // pairing[0] = which kids team faces eltern team 1
-    // pairing[1] = which kids team faces eltern team 2
-    let pairing: [number, number];
-    if (elternInGp1Num === 1) {
-      // eltern team 1 is in GP1, so pairing[0] = kidsTeamNum
-      pairing = [kidsTeamNum, kidsTeamNum === 1 ? 2 : 1];
-    } else {
-      // eltern team 1 is in GP2
-      const kidsInGp2 = placements['gp2-kids'];
-      const kidsTeamInGp2 = kidsInGp2 === 'kids1' ? 1 : 2;
-      pairing = [kidsTeamInGp2, kidsTeamInGp2 === 1 ? 2 : 1];
-    }
+    const pairing = {
+      gp1: { kidsTeam: toNum(placements['gp1-kids']!), elternTeam: toNum(placements['gp1-eltern']!) },
+      gp2: { kidsTeam: toNum(placements['gp2-kids']!), elternTeam: toNum(placements['gp2-eltern']!) },
+    };
 
     setState(prev => ({
       round2: { ...prev.round2, pairing },
