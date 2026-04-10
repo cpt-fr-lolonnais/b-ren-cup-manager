@@ -29,8 +29,10 @@ export function ScreenFinalTracker() {
   const elternPerRace = RACES.map((_, ri) => ELTERN_ORDER.filter(id => getRaces(id)[ri]).length);
 
   const isDisabled = (playerId: string, raceIndex: number, group: 'kids' | 'eltern') => {
-    const races = getRaces(playerId);
-    if (races[raceIndex]) return false; // always allow uncheck
+    const playerRaces = getRaces(playerId);
+    if (playerRaces[raceIndex]) return false; // always allow uncheck
+    const playerCount = playerRaces.filter(Boolean).length;
+    if (playerCount >= 2) return true;
     const count = group === 'kids' ? kidsPerRace[raceIndex] : elternPerRace[raceIndex];
     return count >= 2;
   };
@@ -84,9 +86,7 @@ export function ScreenFinalTracker() {
               );
             })}
             <td className="text-center py-2.5">
-              <span className={`inline-flex items-center justify-center w-8 h-8 rounded-md text-sm font-bold ${
-                warning ? 'bg-destructive/20 text-destructive' : 'text-gold'
-              }`}>
+              <span className={`text-base font-bold ${warning ? 'text-destructive' : 'text-gold'}`}>
                 {count}
               </span>
             </td>
@@ -140,7 +140,7 @@ export function ScreenFinalTracker() {
       </div>
 
       {!allPlayersValid && (
-        <p className="text-destructive text-sm mb-4">⚠ Jeder Spieler muss mindestens 2 Rennen fahren.</p>
+        <p className="text-destructive text-sm mb-4">⚠ Jeder Spieler muss genau 2 Rennen fahren.</p>
       )}
       {allPlayersValid && !allRacesValid && (
         <p className="text-destructive text-sm mb-4">⚠ Jedes Rennen braucht genau 2 Kids und 2 Eltern.</p>
