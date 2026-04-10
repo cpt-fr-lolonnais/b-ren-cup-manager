@@ -15,13 +15,27 @@ export function RankingInput({ playerIds, ranking, onChange, pointsMap = DEFAULT
   const usedRanks = new Set(Object.values(ranking));
 
   const setRank = (playerId: string, rank: number) => {
-    // Remove this rank from any other player
     const newRanking = { ...ranking };
-    for (const [pid, r] of Object.entries(newRanking)) {
-      if (r === rank && pid !== playerId) {
-        delete newRanking[pid];
-      }
+
+    // If clicking the player's current rank, unassign them
+    if (newRanking[playerId] === rank) {
+      delete newRanking[playerId];
+      onChange(newRanking);
+      return;
     }
+
+    // Find who currently holds this rank and swap
+    const previousHolder = Object.entries(newRanking).find(([pid, r]) => r === rank && pid !== playerId);
+    const playerOldRank = newRanking[playerId];
+
+    if (previousHolder && playerOldRank != null) {
+      // Swap: give the previous holder the clicking player's old rank
+      newRanking[previousHolder[0]] = playerOldRank;
+    } else if (previousHolder) {
+      // No swap possible — just unrank the previous holder
+      delete newRanking[previousHolder[0]];
+    }
+
     newRanking[playerId] = rank;
     onChange(newRanking);
   };
@@ -44,11 +58,8 @@ export function RankingInput({ playerIds, ranking, onChange, pointsMap = DEFAULT
                     className={`w-10 h-10 rounded-lg font-bold text-lg transition-colors ${
                       currentRank === rank
                         ? 'bg-gold text-primary-foreground'
-                        : usedRanks.has(rank) && currentRank !== rank
-                        ? 'bg-muted/30 text-muted-foreground/30 cursor-not-allowed'
                         : 'bg-secondary text-foreground hover:bg-gold/20'
                     }`}
-                    disabled={usedRanks.has(rank) && currentRank !== rank}
                   >
                     {rank}
                   </button>
