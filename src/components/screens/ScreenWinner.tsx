@@ -77,7 +77,7 @@ export function ScreenWinner() {
       </div>
 
       <div className="flex gap-4 mt-8">
-        <button onClick={() => setScreen(19)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+        <button onClick={() => setScreen(20)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Auswertung anzeigen
         </button>
         <button onClick={handleNewTournament} className="px-8 py-3 border border-border text-muted-foreground rounded-lg hover:text-foreground transition-colors">

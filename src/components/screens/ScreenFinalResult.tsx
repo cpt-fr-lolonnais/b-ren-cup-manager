@@ -43,7 +43,7 @@ export function ScreenFinalResult() {
   const finish = () => {
     setState(prev => ({
       final: { ...prev.final, completed: true },
-      currentScreen: 18,
+      currentScreen: 19,
     }));
   };
 
@@ -112,7 +112,7 @@ export function ScreenFinalResult() {
       )}
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(16)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(17)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button onClick={finish} disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed">
           Turnier beenden
