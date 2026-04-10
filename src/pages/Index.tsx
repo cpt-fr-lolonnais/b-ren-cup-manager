@@ -14,6 +14,7 @@ import { ScreenRound3Intro } from '@/components/screens/ScreenRound3Intro';
 import { ScreenRound3GP1, ScreenRound3GP2 } from '@/components/screens/ScreenRound3GP';
 import { ScreenRound3Result } from '@/components/screens/ScreenRound3Result';
 import { ScreenFinalIntro } from '@/components/screens/ScreenFinalIntro';
+import { ScreenFinalTracker } from '@/components/screens/ScreenFinalTracker';
 import { ScreenFinalResult } from '@/components/screens/ScreenFinalResult';
 import { ScreenWinner } from '@/components/screens/ScreenWinner';
 import { ScreenSummary } from '@/components/screens/ScreenSummary';
@@ -35,12 +36,13 @@ const SCREENS: Record<number, React.ComponentType> = {
   14: ScreenRound3GP2,
   15: ScreenRound3Result,
   16: ScreenFinalIntro,
-  17: ScreenFinalResult,
-  18: ScreenWinner,
-  19: ScreenSummary,
+  17: ScreenFinalTracker,
+  18: ScreenFinalResult,
+  19: ScreenWinner,
+  20: ScreenSummary,
 };
 
-const HIDE_TOPBAR = [1, 18];
+const HIDE_TOPBAR = [1, 19];
 
 export default function Index() {
   const { state, loading, loadState } = useTournamentStore();

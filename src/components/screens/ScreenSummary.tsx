@@ -87,7 +87,7 @@ export function ScreenSummary() {
       </div>
 
       <div className="flex justify-between mt-8">
-        <button onClick={() => setScreen(18)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => setScreen(19)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
           Zurück zum Sieger-Screen
         </button>
         <button onClick={exportPng} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
