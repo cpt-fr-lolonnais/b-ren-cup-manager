@@ -30,8 +30,9 @@ export function ScreenRound1Kids() {
             <PlayerAvatar playerId={p.id} size="md" />
             <div className="ml-auto">
               <input
-                type="number"
-                min={0}
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 value={points[p.id] ?? ''}
                 onChange={e => updatePoints(p.id, e.target.value)}
                 placeholder="0"
@@ -106,8 +107,9 @@ export function ScreenRound1Eltern() {
             <PlayerAvatar playerId={p.id} size="md" />
             <div className="ml-auto">
               <input
-                type="number"
-                min={0}
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 value={points[p.id] ?? ''}
                 onChange={e => updatePoints(p.id, e.target.value)}
                 placeholder="0"
