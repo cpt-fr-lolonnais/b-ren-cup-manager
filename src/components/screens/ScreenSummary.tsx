@@ -73,7 +73,7 @@ export function ScreenSummary() {
             {[
               { name: 'Warm-Up GP', kids: r1.kids, eltern: r1.eltern, detail: `Kids GP: ${r1Score.kidsTotal}, Eltern GP: ${r1Score.elternTotal}` },
               { name: 'Mixed GP', kids: r2.kids, eltern: r2.eltern },
-              { name: 'Battle GP', kids: r3.kids, eltern: r3.eltern },
+              { name: 'Boys & Girls GP', kids: r3.kids, eltern: r3.eltern },
               { name: 'Final GP', kids: fin.kids, eltern: fin.eltern },
             ].map(round => (
               <div key={round.name} className="bg-card rounded-lg p-4 border border-border text-center">

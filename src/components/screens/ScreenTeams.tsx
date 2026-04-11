@@ -5,7 +5,7 @@ import { PlayerAvatar } from '@/components/PlayerAvatar';
 const STAGES = [
   { num: '\u2460', name: 'Warm-Up GP', pts: 'max 2 Pkt', char: 'leicht' },
   { num: '\u2461', name: 'Mixed GP', pts: 'max 14 Pkt', char: 'mittel' },
-  { num: '\u2462', name: 'Battle GP', pts: 'max 14 Pkt', char: 'mittel' },
+  { num: '\u2462', name: 'Boys & Girls GP', pts: 'max 14 Pkt', char: 'mittel' },
   { num: '\u2463', name: 'Final GP', pts: 'max 18 Pkt', char: 'entscheidend' },
 ];
 
