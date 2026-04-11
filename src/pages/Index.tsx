@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useTournamentStore } from '@/lib/store';
 import { TopBar } from '@/components/TopBar';
+import { ResetButton } from '@/components/ResetButton';
 import { ScreenStartPage } from '@/components/screens/ScreenStart';
 import { ScreenTeams } from '@/components/screens/ScreenTeams';
 import { ScreenRound1Intro } from '@/components/screens/ScreenRound1Intro';
