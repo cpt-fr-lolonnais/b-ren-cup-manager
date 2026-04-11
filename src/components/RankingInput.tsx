@@ -65,11 +65,13 @@ export function RankingInput({ playerIds, ranking, onChange, pointsMap = DEFAULT
                   </button>
                 ))}
               </div>
-              {currentRank && (
-                <span className="text-gold font-bold text-lg w-12 text-right">
-                  {pointsMap[currentRank] ?? 0}P
-                </span>
-              )}
+              <div className="w-12 text-right">
+                {currentRank ? (
+                  <span className="text-gold font-bold text-lg">
+                    {pointsMap[currentRank] ?? 0}P
+                  </span>
+                ) : null}
+              </div>
             </div>
           </div>
         );

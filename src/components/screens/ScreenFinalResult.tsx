@@ -91,11 +91,13 @@ export function ScreenFinalResult() {
                     </button>
                   ))}
                 </div>
-                {currentRank && (
-                  <span className="text-gold font-bold text-lg w-14 text-right">
-                    {FINAL_POINTS[currentRank]}P
-                  </span>
-                )}
+                <div className="w-14 text-right">
+                  {currentRank ? (
+                    <span className="text-gold font-bold text-lg">
+                      {FINAL_POINTS[currentRank]}P
+                    </span>
+                  ) : null}
+                </div>
               </div>
             </div>
           );

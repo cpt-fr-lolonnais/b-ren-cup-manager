@@ -21,9 +21,9 @@ type TeamId = 'kids1' | 'kids2' | 'eltern1' | 'eltern2';
 type SlotId = 'gp1-kids' | 'gp1-eltern' | 'gp2-kids' | 'gp2-eltern';
 
 const TEAMS: Record<TeamId, { label: string; playerIds: string[]; type: 'kids' | 'eltern' }> = {
-  kids1: { label: 'Mio + Milena', playerIds: MIXED_KIDS_TEAM_1, type: 'kids' },
-  kids2: { label: 'Valerio + Elina', playerIds: MIXED_KIDS_TEAM_2, type: 'kids' },
-  eltern1: { label: 'Mäthu + Carmen', playerIds: MIXED_ELTERN_TEAM_1, type: 'eltern' },
+  kids1: { label: 'Milena + Mio', playerIds: MIXED_KIDS_TEAM_1, type: 'kids' },
+  kids2: { label: 'Elina + Valerio', playerIds: MIXED_KIDS_TEAM_2, type: 'kids' },
+  eltern1: { label: 'Carmen + Mäthu', playerIds: MIXED_ELTERN_TEAM_1, type: 'eltern' },
   eltern2: { label: 'Nicole + Michael', playerIds: MIXED_ELTERN_TEAM_2, type: 'eltern' },
 };
 

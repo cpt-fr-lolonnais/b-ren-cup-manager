@@ -14,7 +14,7 @@ export function ScreenStartPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-8 fade-in">
-      <img src="/logo.png" alt="Bären Cup" className="w-48 h-48 object-contain" />
+      <img src="/logo.png" alt="Bären Cup" className="w-80 object-contain" />
       <div className="text-center space-y-3">
         <h1 className="text-6xl font-bold text-gold tracking-tight">BÄREN CUP</h1>
         <p className="text-xl text-muted-foreground">Das ultimative Familien-Mario-Kart-Turnier</p>
