@@ -13,7 +13,7 @@ export function ScreenRound2GP1() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Runde 2 — GP 1</h2>
+      <h2 className="text-2xl font-bold text-gold mb-1">Mixed GP — Duell 1</h2>
       <p className="text-muted-foreground mb-8">Rangfolge eintragen (1 = Erster)</p>
 
       <RankingInput
@@ -42,7 +42,7 @@ export function ScreenRound2GP1() {
           disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          Weiter zu GP 2
+          Weiter zum 2. Duell
         </button>
       </div>
     </div>
@@ -67,7 +67,7 @@ export function ScreenRound2GP2() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Runde 2 — GP 2</h2>
+      <h2 className="text-2xl font-bold text-gold mb-1">Mixed GP — Duell 2</h2>
       <p className="text-muted-foreground mb-8">Rangfolge eintragen (1 = Erster)</p>
 
       <RankingInput
@@ -96,7 +96,7 @@ export function ScreenRound2GP2() {
           disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          Runde 2 abschliessen
+          Mixed GP abschliessen
         </button>
       </div>
     </div>

@@ -21,7 +21,7 @@ export function ScreenRound1Kids() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Runde 1 — Kids-GP</h2>
+      <h2 className="text-2xl font-bold text-gold mb-1">Warm-Up GP — Kids</h2>
       <p className="text-muted-foreground mb-8">GP-Punkte der Kids eintragen</p>
 
       <div className="space-y-4 mb-8">
@@ -98,7 +98,7 @@ export function ScreenRound1Eltern() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Runde 1 — Eltern-GP</h2>
+      <h2 className="text-2xl font-bold text-gold mb-1">Warm-Up GP — Eltern</h2>
       <p className="text-muted-foreground mb-8">GP-Punkte der Eltern eintragen</p>
 
       <div className="space-y-4 mb-8">
@@ -134,7 +134,7 @@ export function ScreenRound1Eltern() {
           disabled={!allFilled}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          Runde 1 abschliessen
+          Warm-Up GP abschliessen
         </button>
       </div>
     </div>

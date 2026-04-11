@@ -49,7 +49,7 @@ export function ScreenFinalResult() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Grand Final — Resultat</h2>
+      <h2 className="text-2xl font-bold text-gold mb-1">Final GP — Resultat</h2>
       <p className="text-muted-foreground mb-8">Endplatzierung der 4 Slots eintragen</p>
 
       {/* Custom ranking for slots since they aren't players */}

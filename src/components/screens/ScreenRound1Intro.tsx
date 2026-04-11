@@ -5,7 +5,7 @@ export function ScreenRound1Intro() {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-3xl font-bold text-gold mb-2">Runde 1 — Einwärmen</h2>
+      <h2 className="text-3xl font-bold text-gold mb-2">Warm-Up GP</h2>
       <div className="checkered-border pb-4 mb-8" />
       <p className="text-lg text-muted-foreground leading-relaxed mb-8">
         Zuerst fahren die Kids einen GP, dann die Eltern. 

@@ -7,7 +7,7 @@ export function ScreenRound2Intro() {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-3xl font-bold text-gold mb-6">Runde 2 — Mixed Duelle</h2>
+      <h2 className="text-3xl font-bold text-gold mb-6">Mixed GP</h2>
 
       <p className="text-foreground/90 leading-relaxed mb-4">
         In dieser Runde treten gemischte Zweierteams gegeneinander an — jeweils ein Kind oder Elternteil aus beiden Familien. Es werden zwei GPs gefahren mit je einem Kids-Team gegen ein Eltern-Team. Pro GP gibt es Rangpunkte (4/3/2/1) für jeden Fahrer, die Punkte der beiden Teampartner werden addiert und fliessen direkt in die Gesamtwertung ein.

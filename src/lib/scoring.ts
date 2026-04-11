@@ -111,9 +111,9 @@ export function getCumulativeScores(state: TournamentState) {
   const r3 = getRound3Points(state);
   const fin = getFinalPoints(state);
   return [
-    { round: 'Einwärmen', kids: r1.kids, eltern: r1.eltern },
+    { round: 'Warm-Up', kids: r1.kids, eltern: r1.eltern },
     { round: 'Mixed', kids: r1.kids + r2.kids, eltern: r1.eltern + r2.eltern },
-    { round: 'Gender', kids: r1.kids + r2.kids + r3.kids, eltern: r1.eltern + r2.eltern + r3.eltern },
+    { round: 'Battle', kids: r1.kids + r2.kids + r3.kids, eltern: r1.eltern + r2.eltern + r3.eltern },
     { round: 'Final', kids: r1.kids + r2.kids + r3.kids + fin.kids, eltern: r1.eltern + r2.eltern + r3.eltern + fin.eltern },
   ];
 }
