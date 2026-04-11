@@ -33,7 +33,7 @@ export function ScreenRound1Result() {
             <span className="text-gold font-bold">Unentschieden — 1 Punkt pro Team</span>
           ) : (
             <>
-              <span className="text-gold font-bold">{winnerName}</span> gewinnt das Einwärmen →{' '}
+              <span className="text-gold font-bold">{winnerName}</span> gewinnt den Warm-Up GP →{' '}
               <span className="text-gold font-bold">+2 Punkte</span>
             </>
           )}

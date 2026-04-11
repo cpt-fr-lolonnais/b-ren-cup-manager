@@ -35,7 +35,7 @@ export function ScreenTeams() {
         <h3 className="text-lg font-bold text-gold mb-2">Spielmodus</h3>
         <p className="text-muted-foreground leading-relaxed">
           Das Turnier besteht aus <span className="text-foreground font-medium">4 Runden</span>: 
-          Einwärmen, Mixed-Duelle, Gender-Duelle und dem grossen Final. 
+          Warm-Up GP, Mixed GP, Battle GP und dem grossen Final GP. 
           Die Punkte werden über alle Runden aufsummiert. Das Final hat das höchste Gewicht.
         </p>
       </div>
