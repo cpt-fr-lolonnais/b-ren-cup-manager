@@ -113,7 +113,7 @@ export function getCumulativeScores(state: TournamentState) {
   return [
     { round: 'Warm-Up', kids: r1.kids, eltern: r1.eltern },
     { round: 'Mixed', kids: r1.kids + r2.kids, eltern: r1.eltern + r2.eltern },
-    { round: 'Battle', kids: r1.kids + r2.kids + r3.kids, eltern: r1.eltern + r2.eltern + r3.eltern },
+    { round: 'Boys & Girls', kids: r1.kids + r2.kids + r3.kids, eltern: r1.eltern + r2.eltern + r3.eltern },
     { round: 'Final', kids: r1.kids + r2.kids + r3.kids + fin.kids, eltern: r1.eltern + r2.eltern + r3.eltern + fin.eltern },
   ];
 }

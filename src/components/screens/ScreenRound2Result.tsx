@@ -26,7 +26,7 @@ export function ScreenRound2Result() {
       <div className="flex justify-between">
         <button onClick={() => setScreen(10)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button onClick={() => setScreen(12)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
-          Weiter zum Battle GP
+          Weiter zum Boys & Girls GP
         </button>
       </div>
     </div>

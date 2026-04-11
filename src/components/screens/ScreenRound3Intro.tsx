@@ -7,13 +7,9 @@ export function ScreenRound3Intro() {
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-4">Battle GP</h2>
+      <h2 className="text-2xl font-bold text-gold mb-4">Boys & Girls GP</h2>
 
       <ul className="space-y-2 mb-6">
-        <li className="flex items-start gap-2 text-foreground/90">
-          <span className="text-gold mt-0.5">&#9670;</span>
-          <span>Jetzt kommt das direkte Duell</span>
-        </li>
         <li className="flex items-start gap-2 text-foreground/90">
           <span className="text-gold mt-0.5">&#9670;</span>
           <span>GP 1: Jungs vs. Papas</span>

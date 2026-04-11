@@ -1,7 +1,7 @@
 import { getTotalScore } from '@/lib/scoring';
 import { useTournamentStore } from '@/lib/store';
 
-const ROUND_NAMES = ['Warm-Up', 'Mixed', 'Battle', 'Final'];
+const ROUND_NAMES = ['Warm-Up', 'Mixed', 'Boys & Girls', 'Final'];
 
 function getRoundIndex(screen: number): number {
   if (screen <= 6) return 0;

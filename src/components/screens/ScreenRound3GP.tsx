@@ -12,7 +12,7 @@ export function ScreenRound3GP1() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Battle GP — Jungs vs. Papas</h2>
+      <h2 className="text-2xl font-bold text-gold mb-1">Boys & Girls GP — Jungs vs. Papas</h2>
       <p className="text-muted-foreground mb-8">Rangfolge eintragen</p>
 
       <RankingInput
@@ -55,7 +55,7 @@ export function ScreenRound3GP2() {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-2xl font-bold text-gold mb-1">Battle GP — Girls vs. Mamas</h2>
+      <h2 className="text-2xl font-bold text-gold mb-1">Boys & Girls GP — Girls vs. Mamas</h2>
       <p className="text-muted-foreground mb-8">Rangfolge eintragen</p>
 
       <RankingInput
@@ -75,7 +75,7 @@ export function ScreenRound3GP2() {
         <button onClick={() => setScreen(13)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button onClick={finish} disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed">
-          Battle GP abschliessen
+          Boys & Girls GP abschliessen
         </button>
       </div>
     </div>
