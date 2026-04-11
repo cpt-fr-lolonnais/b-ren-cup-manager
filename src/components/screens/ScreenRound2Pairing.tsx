@@ -44,7 +44,7 @@ function TeamCard({ teamId, overlay }: { teamId: TeamId; overlay?: boolean }) {
       ref={overlay ? undefined : setNodeRef}
       {...(overlay ? {} : { ...listeners, ...attributes })}
       className={`flex items-center gap-2 rounded-lg border px-3 py-2 cursor-grab select-none transition-all
-        ${team.type === 'kids' ? 'border-blue-500/40 bg-blue-500/10' : 'border-pink-500/40 bg-pink-500/10'}
+        ${team.type === 'kids' ? 'border-[#5A8FA0]/40 bg-[#5A8FA0]/10' : 'border-[#5C3A5F]/40 bg-[#5C3A5F]/10'}
         ${isDragging && !overlay ? 'opacity-30' : 'opacity-100'}
         ${overlay ? 'shadow-lg shadow-gold/20 scale-105 border-gold' : 'hover:border-gold/50'}
       `}

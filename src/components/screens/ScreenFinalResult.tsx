@@ -15,9 +15,7 @@ function SlotAvatar({ slotId }: { slotId: string }) {
   const isKids = slotId.startsWith('kids');
   return (
     <div className="flex items-center gap-2">
-      <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm ${
-        isKids ? 'bg-blue-300' : 'bg-pink-500'
-      } text-foreground`}>
+      <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm text-white" style={{ backgroundColor: isKids ? '#5A8FA0' : '#5C3A5F' }}>
         {slotId.startsWith('kids') ? 'K' : 'E'}{slotId.slice(-1)}
       </div>
       <span className="text-foreground font-medium">{SLOT_LABELS[slotId]}</span>
