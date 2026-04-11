@@ -59,9 +59,17 @@ export function ScreenRound2Intro() {
 
       <div className="max-w-sm mx-auto bg-card border border-gold/40 rounded-xl p-5 text-center mb-8">
         <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Zu gewinnen pro GP</p>
-        <p className="text-3xl font-bold text-gold mb-1">3–7 Punkte</p>
-        <p className="text-xs text-muted-foreground">pro Fahrer:  1. = 4   2. = 3   3. = 2   4. = 1</p>
-        <p className="text-xs text-muted-foreground">beide Teampartner werden zusammengezählt</p>
+        <p className="text-3xl font-bold text-gold mb-3">3–7 Punkte</p>
+        <div className="flex justify-center gap-2 mb-2">
+          {[{ rank: '1.', pts: '4' }, { rank: '2.', pts: '3' }, { rank: '3.', pts: '2' }, { rank: '4.', pts: '1' }].map(c => (
+            <div key={c.rank} className="w-16 bg-card border border-border rounded-lg py-2">
+              <p className="text-xs text-muted-foreground">{c.rank}</p>
+              <p className="text-2xl font-bold text-gold">{c.pts}</p>
+              <p className="text-xs text-muted-foreground">Pkt</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-muted-foreground italic">beide Teampartner werden zusammengezählt</p>
       </div>
 
       <div className="flex justify-between">

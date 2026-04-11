@@ -32,10 +32,17 @@ export function ScreenFinalIntro() {
 
       <div className="max-w-sm mx-auto bg-card border border-gold/40 rounded-xl p-5 text-center mb-8">
         <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Zu gewinnen</p>
-        <p className="text-3xl font-bold text-gold mb-1">6–18 Punkte</p>
-        <p className="text-xs text-muted-foreground">1. Platz = 10    2. Platz = 8</p>
-        <p className="text-xs text-muted-foreground">3. Platz = 4     4. Platz = 2</p>
-        <p className="text-xs text-muted-foreground">beide Figuren pro Team werden zusammengezählt</p>
+        <p className="text-3xl font-bold text-gold mb-3">6–18 Punkte</p>
+        <div className="flex justify-center gap-2 mb-2">
+          {[{ rank: '1.', pts: '10' }, { rank: '2.', pts: '8' }, { rank: '3.', pts: '4' }, { rank: '4.', pts: '2' }].map(c => (
+            <div key={c.rank} className="w-16 bg-card border border-border rounded-lg py-2">
+              <p className="text-xs text-muted-foreground">{c.rank}</p>
+              <p className="text-2xl font-bold text-gold">{c.pts}</p>
+              <p className="text-xs text-muted-foreground">Pkt</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-muted-foreground italic">beide Figuren pro Team werden zusammengezählt</p>
       </div>
 
       <div className="flex justify-between">
