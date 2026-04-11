@@ -6,48 +6,62 @@ export function ScreenRound2Intro() {
   const { setScreen } = useTournamentStore();
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-3xl font-bold text-gold mb-6">Mixed GP</h2>
+    <div className="max-w-3xl mx-auto py-10 px-4 slide-up">
+      <h2 className="text-2xl font-bold text-gold mb-4">Mixed GP</h2>
 
-      <p className="text-foreground/90 leading-relaxed mb-4">
-        In dieser Runde treten gemischte Zweierteams gegeneinander an — jeweils ein Kind oder Elternteil aus beiden Familien. Es werden zwei GPs gefahren mit je einem Kids-Team gegen ein Eltern-Team. Pro GP gibt es Rangpunkte (4/3/2/1) für jeden Fahrer, die Punkte der beiden Teampartner werden addiert und fliessen direkt in die Gesamtwertung ein.
-      </p>
+      <ul className="space-y-2 mb-6">
+        <li className="flex items-start gap-2 text-foreground/90">
+          <span className="text-gold mt-0.5">&#9670;</span>
+          <span>Ein Mädchen und ein Junge aus beiden Familien zusammen im Team — bei den Kids und bei den Eltern</span>
+        </li>
+        <li className="flex items-start gap-2 text-foreground/90">
+          <span className="text-gold mt-0.5">&#9670;</span>
+          <span>Es gibt 2 GPs: jeweils ein Kids-Duo gegen ein Eltern-Duo</span>
+        </li>
+        <li className="flex items-start gap-2 text-foreground/90">
+          <span className="text-gold mt-0.5">&#9670;</span>
+          <span>Die Kids bestimmen, wer gegen wen fährt</span>
+        </li>
+      </ul>
 
-      <p className="text-gold font-semibold mb-8">
-        Die Kids dürfen entscheiden, welches Kids-Team gegen welches Eltern-Team antritt.
-      </p>
-
-      <div className="grid grid-cols-2 gap-6 mb-10">
+      <div className="grid grid-cols-2 gap-4 mb-6">
         <div>
-          <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">Kids-Teams</h3>
-          <div className="bg-card/50 rounded-lg p-3 border border-border/50 mb-2">
-            <p className="text-xs text-muted-foreground mb-2">Kids-Team 1</p>
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Kids-Teams</p>
+          <div className="bg-card/50 rounded-lg p-2.5 border border-border/50 mb-1.5">
+            <p className="text-xs text-muted-foreground mb-1">Kids-Team 1</p>
             <div className="flex items-center gap-2">
               {MIXED_KIDS_TEAM_1.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
             </div>
           </div>
-          <div className="bg-card/50 rounded-lg p-3 border border-border/50">
-            <p className="text-xs text-muted-foreground mb-2">Kids-Team 2</p>
+          <div className="bg-card/50 rounded-lg p-2.5 border border-border/50">
+            <p className="text-xs text-muted-foreground mb-1">Kids-Team 2</p>
             <div className="flex items-center gap-2">
               {MIXED_KIDS_TEAM_2.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
             </div>
           </div>
         </div>
         <div>
-          <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">Eltern-Teams</h3>
-          <div className="bg-card/50 rounded-lg p-3 border border-border/50 mb-2">
-            <p className="text-xs text-muted-foreground mb-2">Eltern-Team 1</p>
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Eltern-Teams</p>
+          <div className="bg-card/50 rounded-lg p-2.5 border border-border/50 mb-1.5">
+            <p className="text-xs text-muted-foreground mb-1">Eltern-Team 1</p>
             <div className="flex items-center gap-2">
               {MIXED_ELTERN_TEAM_1.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
             </div>
           </div>
-          <div className="bg-card/50 rounded-lg p-3 border border-border/50">
-            <p className="text-xs text-muted-foreground mb-2">Eltern-Team 2</p>
+          <div className="bg-card/50 rounded-lg p-2.5 border border-border/50">
+            <p className="text-xs text-muted-foreground mb-1">Eltern-Team 2</p>
             <div className="flex items-center gap-2">
               {MIXED_ELTERN_TEAM_2.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="max-w-sm mx-auto bg-card border border-gold/40 rounded-xl p-5 text-center mb-8">
+        <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Zu gewinnen pro GP</p>
+        <p className="text-3xl font-bold text-gold mb-1">3–7 Punkte</p>
+        <p className="text-xs text-muted-foreground">pro Fahrer:  1. = 4   2. = 3   3. = 2   4. = 1</p>
+        <p className="text-xs text-muted-foreground">beide Teampartner werden zusammengezählt</p>
       </div>
 
       <div className="flex justify-between">

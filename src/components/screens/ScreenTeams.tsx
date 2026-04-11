@@ -2,49 +2,77 @@ import { useTournamentStore } from '@/lib/store';
 import { KIDS, ELTERN } from '@/lib/players';
 import { PlayerAvatar } from '@/components/PlayerAvatar';
 
+const STAGES = [
+  { num: '\u2460', name: 'Warm-Up GP', pts: 'max 2 Pkt', char: 'leicht' },
+  { num: '\u2461', name: 'Mixed GP', pts: 'max 14 Pkt', char: 'mittel' },
+  { num: '\u2462', name: 'Battle GP', pts: 'max 14 Pkt', char: 'mittel' },
+  { num: '\u2463', name: 'Final GP', pts: 'max 18 Pkt', char: 'entscheidend' },
+];
+
 export function ScreenTeams() {
   const { setScreen } = useTournamentStore();
 
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-3xl font-bold text-center text-gold mb-10">Teams & Modus</h2>
+    <div className="max-w-4xl mx-auto py-8 px-4 slide-up">
+      {/* Title */}
+      <h1 className="text-5xl font-bold text-gold text-center tracking-wider mb-1">BÄREN CUP</h1>
+      <p className="text-lg text-muted-foreground text-center mb-8">Kids gegen Eltern in 4 Runden</p>
 
-      <div className="grid grid-cols-2 gap-8 mb-10">
-        {/* Team Kids */}
-        <div className="bg-card rounded-xl p-6 border border-border">
-          <h3 className="text-xl font-bold text-gold mb-4 text-center">Team Kids</h3>
-          <div className="space-y-3">
+      {/* Teams */}
+      <div className="flex items-center gap-4 mb-8">
+        <div className="flex-1 bg-card rounded-xl p-5 border border-border text-center">
+          <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">Team Kids</h3>
+          <div className="grid grid-cols-2 gap-3">
             {KIDS.map(p => (
-              <PlayerAvatar key={p.id} playerId={p.id} size="lg" />
+              <div key={p.id} className="flex flex-col items-center gap-1">
+                <PlayerAvatar playerId={p.id} size="md" showName={false} />
+                <span className="text-xs text-foreground">{p.name}</span>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Team Eltern */}
-        <div className="bg-card rounded-xl p-6 border border-border">
-          <h3 className="text-xl font-bold text-gold mb-4 text-center">Team Eltern</h3>
-          <div className="space-y-3">
+        <span className="text-3xl font-bold text-gold italic shrink-0">vs</span>
+
+        <div className="flex-1 bg-card rounded-xl p-5 border border-border text-center">
+          <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">Team Eltern</h3>
+          <div className="grid grid-cols-2 gap-3">
             {ELTERN.map(p => (
-              <PlayerAvatar key={p.id} playerId={p.id} size="lg" />
+              <div key={p.id} className="flex flex-col items-center gap-1">
+                <PlayerAvatar playerId={p.id} size="md" showName={false} />
+                <span className="text-xs text-foreground">{p.name}</span>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="bg-card rounded-xl p-6 border border-border mb-8">
-        <h3 className="text-lg font-bold text-gold mb-2">Spielmodus</h3>
-        <p className="text-muted-foreground leading-relaxed">
-          Das Turnier besteht aus <span className="text-foreground font-medium">4 Runden</span>: 
-          Warm-Up GP, Mixed GP, Battle GP und dem grossen Final GP. 
-          Die Punkte werden über alle Runden aufsummiert. Das Final hat das höchste Gewicht.
-        </p>
+      {/* Roadmap */}
+      <p className="text-lg text-gold font-bold text-center mb-4">Der Weg zum Bären Cup</p>
+
+      <div className="flex items-start gap-0 mb-6">
+        {STAGES.map((s, i) => (
+          <div key={s.name} className="flex items-start flex-1">
+            <div className="bg-card rounded-lg p-3 border border-border text-center w-full">
+              <p className="text-xl mb-1">{s.num}</p>
+              <p className="text-sm font-bold text-gold mb-0.5">{s.name}</p>
+              <p className="text-xs text-muted-foreground">{s.pts}</p>
+              <p className="text-xs text-muted-foreground italic">{s.char}</p>
+            </div>
+            {i < STAGES.length - 1 && (
+              <span className="text-gold text-xl font-bold mt-6 mx-1 shrink-0">&#9656;</span>
+            )}
+          </div>
+        ))}
       </div>
 
-      <div className="flex justify-between">
-        <button onClick={() => setScreen(1)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
-          Zurück
-        </button>
-        <button onClick={() => setScreen(3)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+      <div className="text-center mb-6">
+        <p className="text-sm text-muted-foreground">In jeder Runde gibt es Punkte. Alles wird zusammengezählt.</p>
+        <p className="text-sm text-gold">Im Final kann sich noch alles drehen.</p>
+      </div>
+
+      <div className="flex justify-center">
+        <button onClick={() => setScreen(3)} className="px-10 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Los geht's!
         </button>
       </div>

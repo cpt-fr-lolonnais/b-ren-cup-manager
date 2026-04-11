@@ -6,17 +6,28 @@ export function ScreenRound3Intro() {
   const { setScreen } = useTournamentStore();
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-3xl font-bold text-gold mb-6">Battle GP</h2>
+    <div className="max-w-3xl mx-auto py-10 px-4 slide-up">
+      <h2 className="text-2xl font-bold text-gold mb-4">Battle GP</h2>
 
-      <p className="text-foreground/90 leading-relaxed mb-8">
-        Jetzt treten Jungs gegen Papas und Girls gegen Mamas an. Auch hier gilt: Rangpunkte 4/3/2/1 pro Fahrer, Team-Summen fliessen direkt in die Gesamtwertung.
-      </p>
+      <ul className="space-y-2 mb-6">
+        <li className="flex items-start gap-2 text-foreground/90">
+          <span className="text-gold mt-0.5">&#9670;</span>
+          <span>Jetzt kommt das direkte Duell</span>
+        </li>
+        <li className="flex items-start gap-2 text-foreground/90">
+          <span className="text-gold mt-0.5">&#9670;</span>
+          <span>GP 1: Jungs vs. Papas</span>
+        </li>
+        <li className="flex items-start gap-2 text-foreground/90">
+          <span className="text-gold mt-0.5">&#9670;</span>
+          <span>GP 2: Girls vs. Mamas</span>
+        </li>
+      </ul>
 
-      <div className="grid grid-cols-2 gap-6 mb-10">
-        <div className="bg-card/50 rounded-lg p-3 border border-border/50">
-          <p className="text-xs text-gold font-semibold mb-3">GP 1: Jungs vs. Papas</p>
-          <div className="flex items-center gap-2 mb-2">
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="bg-card/50 rounded-lg p-2.5 border border-border/50">
+          <p className="text-xs text-gold font-semibold mb-2">GP 1: Jungs vs. Papas</p>
+          <div className="flex items-center gap-2 mb-1.5">
             {JUNGS.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
           </div>
           <p className="text-xs text-muted-foreground my-1">vs.</p>
@@ -24,9 +35,9 @@ export function ScreenRound3Intro() {
             {PAPAS.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
           </div>
         </div>
-        <div className="bg-card/50 rounded-lg p-3 border border-border/50">
-          <p className="text-xs text-gold font-semibold mb-3">GP 2: Girls vs. Mamas</p>
-          <div className="flex items-center gap-2 mb-2">
+        <div className="bg-card/50 rounded-lg p-2.5 border border-border/50">
+          <p className="text-xs text-gold font-semibold mb-2">GP 2: Girls vs. Mamas</p>
+          <div className="flex items-center gap-2 mb-1.5">
             {GIRLS.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
           </div>
           <p className="text-xs text-muted-foreground my-1">vs.</p>
@@ -34,6 +45,13 @@ export function ScreenRound3Intro() {
             {MAMAS.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
           </div>
         </div>
+      </div>
+
+      <div className="max-w-sm mx-auto bg-card border border-gold/40 rounded-xl p-5 text-center mb-8">
+        <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Zu gewinnen pro GP</p>
+        <p className="text-3xl font-bold text-gold mb-1">3–7 Punkte</p>
+        <p className="text-xs text-muted-foreground">pro Fahrer:  1. = 4   2. = 3   3. = 2   4. = 1</p>
+        <p className="text-xs text-muted-foreground">beide Teampartner werden zusammengezählt</p>
       </div>
 
       <div className="flex justify-between">
