@@ -14,7 +14,7 @@ export function ScreenRound1Result() {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 slide-up text-center">
-      <h2 className="text-3xl font-bold text-gold mb-8">Runde 1 — Ergebnis</h2>
+      <h2 className="text-3xl font-bold text-gold mb-8">Warm-Up GP — Ergebnis</h2>
 
       <div className="grid grid-cols-2 gap-8 mb-10">
         <div className="bg-card rounded-xl p-8 border border-border">
@@ -33,7 +33,7 @@ export function ScreenRound1Result() {
             <span className="text-gold font-bold">Unentschieden — 1 Punkt pro Team</span>
           ) : (
             <>
-              <span className="text-gold font-bold">{winnerName}</span> gewinnt das Einwärmen →{' '}
+              <span className="text-gold font-bold">{winnerName}</span> gewinnt den Warm-Up GP →{' '}
               <span className="text-gold font-bold">+2 Punkte</span>
             </>
           )}
@@ -45,7 +45,7 @@ export function ScreenRound1Result() {
           Zurück
         </button>
         <button onClick={() => setScreen(7)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
-          Weiter zu Runde 2
+          Weiter zum Mixed GP
         </button>
       </div>
     </div>

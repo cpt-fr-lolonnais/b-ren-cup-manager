@@ -7,7 +7,7 @@ export function ScreenRound3Intro() {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 slide-up">
-      <h2 className="text-3xl font-bold text-gold mb-6">Runde 3 — Gender Duelle</h2>
+      <h2 className="text-3xl font-bold text-gold mb-6">Battle GP</h2>
 
       <p className="text-foreground/90 leading-relaxed mb-8">
         Jetzt treten Jungs gegen Papas und Girls gegen Mamas an. Auch hier gilt: Rangpunkte 4/3/2/1 pro Fahrer, Team-Summen fliessen direkt in die Gesamtwertung.

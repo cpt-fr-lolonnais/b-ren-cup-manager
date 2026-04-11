@@ -96,7 +96,7 @@ export function ScreenFinalTracker() {
 
   return (
     <div className="max-w-3xl mx-auto py-6 px-4 slide-up">
-      <h2 className="text-xl font-bold text-gold mb-1">Grand Final — Renn-Tracker</h2>
+      <h2 className="text-xl font-bold text-gold mb-1">Final GP — Renn-Tracker</h2>
       <p className="text-muted-foreground mb-4">
         Trage ein, welcher Spieler welches Rennen fährt. Pro Rennen genau 2 Kids und 2 Eltern.
       </p>

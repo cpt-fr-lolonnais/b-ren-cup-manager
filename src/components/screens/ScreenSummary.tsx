@@ -71,10 +71,10 @@ export function ScreenSummary() {
           <h3 className="text-lg font-bold text-gold">Runden-Details</h3>
           <div className="grid grid-cols-4 gap-3">
             {[
-              { name: 'Einwärmen', kids: r1.kids, eltern: r1.eltern, detail: `Kids GP: ${r1Score.kidsTotal}, Eltern GP: ${r1Score.elternTotal}` },
-              { name: 'Mixed', kids: r2.kids, eltern: r2.eltern },
-              { name: 'Gender', kids: r3.kids, eltern: r3.eltern },
-              { name: 'Final', kids: fin.kids, eltern: fin.eltern },
+              { name: 'Warm-Up GP', kids: r1.kids, eltern: r1.eltern, detail: `Kids GP: ${r1Score.kidsTotal}, Eltern GP: ${r1Score.elternTotal}` },
+              { name: 'Mixed GP', kids: r2.kids, eltern: r2.eltern },
+              { name: 'Battle GP', kids: r3.kids, eltern: r3.eltern },
+              { name: 'Final GP', kids: fin.kids, eltern: fin.eltern },
             ].map(round => (
               <div key={round.name} className="bg-card rounded-lg p-4 border border-border text-center">
                 <p className="text-sm text-muted-foreground mb-2">{round.name}</p>
