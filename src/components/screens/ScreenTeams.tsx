@@ -3,10 +3,10 @@ import { KIDS, ELTERN } from '@/lib/players';
 import { PlayerAvatar } from '@/components/PlayerAvatar';
 
 const STAGES = [
-  { num: '\u2460', name: 'Warm-Up GP', pts: 'max 2 Pkt', char: 'leicht' },
-  { num: '\u2461', name: 'Mixed GP', pts: 'max 14 Pkt', char: 'mittel' },
-  { num: '\u2462', name: 'Boys & Girls GP', pts: 'max 14 Pkt', char: 'mittel' },
-  { num: '\u2463', name: 'Final GP', pts: 'max 18 Pkt', char: 'entscheidend' },
+  { name: 'Warm-Up GP', pts: 'max 2 Pkt', char: 'leicht' },
+  { name: 'Mixed GP', pts: 'max 14 Pkt', char: 'mittel' },
+  { name: 'Boys & Girls GP', pts: 'max 14 Pkt', char: 'mittel' },
+  { name: 'Final GP', pts: 'max 18 Pkt', char: 'entscheidend' },
 ];
 
 export function ScreenTeams() {
@@ -54,13 +54,15 @@ export function ScreenTeams() {
         {STAGES.map((s, i) => (
           <div key={s.name} className="flex items-start flex-1">
             <div className="bg-card rounded-lg p-3 border border-border text-center w-full">
-              <p className="text-xl mb-1">{s.num}</p>
+              <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center mb-2 mx-auto">
+                <span className="text-xl font-bold text-black">{i + 1}</span>
+              </div>
               <p className="text-sm font-bold text-gold mb-0.5">{s.name}</p>
               <p className="text-xs text-muted-foreground">{s.pts}</p>
               <p className="text-xs text-muted-foreground italic">{s.char}</p>
             </div>
             {i < STAGES.length - 1 && (
-              <span className="text-gold text-xl font-bold mt-6 mx-1 shrink-0">&#9656;</span>
+              <span className="text-gold text-xl font-bold mt-8 mx-1 shrink-0">&#9656;</span>
             )}
           </div>
         ))}

@@ -30,13 +30,13 @@ export function ScreenRound2Intro() {
           <div className="bg-card/50 rounded-lg p-2.5 border border-border/50 mb-1.5">
             <p className="text-xs text-muted-foreground mb-1">Kids-Team 1</p>
             <div className="flex items-center gap-2">
-              {MIXED_KIDS_TEAM_1.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
+              {[...MIXED_KIDS_TEAM_1].reverse().map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
             </div>
           </div>
           <div className="bg-card/50 rounded-lg p-2.5 border border-border/50">
             <p className="text-xs text-muted-foreground mb-1">Kids-Team 2</p>
             <div className="flex items-center gap-2">
-              {MIXED_KIDS_TEAM_2.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
+              {[...MIXED_KIDS_TEAM_2].reverse().map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ export function ScreenRound2Intro() {
           <div className="bg-card/50 rounded-lg p-2.5 border border-border/50 mb-1.5">
             <p className="text-xs text-muted-foreground mb-1">Eltern-Team 1</p>
             <div className="flex items-center gap-2">
-              {MIXED_ELTERN_TEAM_1.map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
+              {[...MIXED_ELTERN_TEAM_1].reverse().map(id => <PlayerAvatar key={id} playerId={id} size="sm" />)}
             </div>
           </div>
           <div className="bg-card/50 rounded-lg p-2.5 border border-border/50">
