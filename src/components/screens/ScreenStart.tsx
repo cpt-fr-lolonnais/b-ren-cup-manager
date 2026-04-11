@@ -24,7 +24,7 @@ export function ScreenStartPage() {
           onClick={() => setScreen(2)}
           className="px-8 py-4 bg-gold text-primary-foreground font-bold text-lg rounded-lg hover:opacity-90 transition-opacity"
         >
-          Turnier starten
+          Los geht's
         </button>
         {hasSavedState && state.currentScreen > 1 && (
           <>

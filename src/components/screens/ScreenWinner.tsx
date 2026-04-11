@@ -17,7 +17,7 @@ export function ScreenWinner() {
   const { state, setScreen, resetState } = useTournamentStore();
   const score = getTotalScore(state);
   const tied = score.kids === score.eltern;
-  const winner = score.kids > score.eltern ? 'Team Kids' : 'Team Eltern';
+  const winner = score.kids > score.eltern ? state.teamNames.kids : state.teamNames.eltern;
   const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
@@ -78,18 +78,18 @@ export function ScreenWinner() {
 
       <div className="flex items-center gap-6 text-center">
         <div>
-          <p className="text-sm text-muted-foreground">Team Kids</p>
+          <p className="text-sm text-muted-foreground">{state.teamNames.kids}</p>
           <p className="text-5xl font-bold text-gold">{score.kids}</p>
         </div>
         <span className="text-3xl text-muted-foreground">:</span>
         <div>
-          <p className="text-sm text-muted-foreground">Team Eltern</p>
+          <p className="text-sm text-muted-foreground">{state.teamNames.eltern}</p>
           <p className="text-5xl font-bold text-gold">{score.eltern}</p>
         </div>
       </div>
 
       <div className="flex gap-4 mt-8">
-        <button onClick={() => setScreen(20)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+        <button onClick={() => setScreen(21)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Auswertung anzeigen
         </button>
         <button onClick={() => setDialogOpen(true)} className="px-8 py-3 border border-border text-muted-foreground rounded-lg hover:text-foreground transition-colors">

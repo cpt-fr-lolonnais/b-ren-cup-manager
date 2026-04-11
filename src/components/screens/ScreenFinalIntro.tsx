@@ -46,8 +46,8 @@ export function ScreenFinalIntro() {
       </div>
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(15)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
-        <button onClick={() => setScreen(17)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+        <button onClick={() => setScreen(16)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(18)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Weiter zum Renn-Tracker
         </button>
       </div>

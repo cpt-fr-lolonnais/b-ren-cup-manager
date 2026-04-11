@@ -29,8 +29,8 @@ export function ScreenRound3GP1() {
       )}
 
       <div className="flex justify-between mt-8">
-        <button onClick={() => setScreen(12)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
-        <button onClick={() => setScreen(14)} disabled={!allRanked}
+        <button onClick={() => setScreen(13)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(15)} disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed">
           Weiter zu GP 2
         </button>
@@ -49,7 +49,7 @@ export function ScreenRound3GP2() {
   const finish = () => {
     setState(prev => ({
       round3: { ...prev.round3, completed: true },
-      currentScreen: 15,
+      currentScreen: 16,
     }));
   };
 
@@ -72,7 +72,7 @@ export function ScreenRound3GP2() {
       )}
 
       <div className="flex justify-between mt-8">
-        <button onClick={() => setScreen(13)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(14)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button onClick={finish} disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed">
           Boys & Girls GP abschliessen

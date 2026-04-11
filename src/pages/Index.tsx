@@ -3,6 +3,7 @@ import { useTournamentStore } from '@/lib/store';
 import { TopBar } from '@/components/TopBar';
 import { ResetButton } from '@/components/ResetButton';
 import { ScreenStartPage } from '@/components/screens/ScreenStart';
+import { ScreenTeamNames } from '@/components/screens/ScreenTeamNames';
 import { ScreenTeams } from '@/components/screens/ScreenTeams';
 import { ScreenRound1Intro } from '@/components/screens/ScreenRound1Intro';
 import { ScreenRound1Kids, ScreenRound1Eltern } from '@/components/screens/ScreenRound1GP';
@@ -22,28 +23,29 @@ import { ScreenSummary } from '@/components/screens/ScreenSummary';
 
 const SCREENS: Record<number, React.ComponentType> = {
   1: ScreenStartPage,
-  2: ScreenTeams,
-  3: ScreenRound1Intro,
-  4: ScreenRound1Kids,
-  5: ScreenRound1Eltern,
-  6: ScreenRound1Result,
-  7: ScreenRound2Intro,
-  8: ScreenRound2Pairing,
-  9: ScreenRound2GP1,
-  10: ScreenRound2GP2,
-  11: ScreenRound2Result,
-  12: ScreenRound3Intro,
-  13: ScreenRound3GP1,
-  14: ScreenRound3GP2,
-  15: ScreenRound3Result,
-  16: ScreenFinalIntro,
-  17: ScreenFinalTracker,
-  18: ScreenFinalResult,
-  19: ScreenWinner,
-  20: ScreenSummary,
+  2: ScreenTeamNames,
+  3: ScreenTeams,
+  4: ScreenRound1Intro,
+  5: ScreenRound1Kids,
+  6: ScreenRound1Eltern,
+  7: ScreenRound1Result,
+  8: ScreenRound2Intro,
+  9: ScreenRound2Pairing,
+  10: ScreenRound2GP1,
+  11: ScreenRound2GP2,
+  12: ScreenRound2Result,
+  13: ScreenRound3Intro,
+  14: ScreenRound3GP1,
+  15: ScreenRound3GP2,
+  16: ScreenRound3Result,
+  17: ScreenFinalIntro,
+  18: ScreenFinalTracker,
+  19: ScreenFinalResult,
+  20: ScreenWinner,
+  21: ScreenSummary,
 };
 
-const HIDE_TOPBAR = [1, 19];
+const HIDE_TOPBAR = [1, 2, 20];
 
 export default function Index() {
   const { state, loading, loadState } = useTournamentStore();

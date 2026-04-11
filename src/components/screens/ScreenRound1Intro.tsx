@@ -29,10 +29,10 @@ export function ScreenRound1Intro() {
       </div>
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(2)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => setScreen(3)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
           Zurück
         </button>
-        <button onClick={() => setScreen(4)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+        <button onClick={() => setScreen(5)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Warm-Up GP starten
         </button>
       </div>

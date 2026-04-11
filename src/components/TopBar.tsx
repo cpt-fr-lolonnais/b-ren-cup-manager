@@ -5,11 +5,11 @@ import { useCountUp } from '@/hooks/useCountUp';
 const ROUND_NAMES = ['Warm-Up', 'Mixed', 'Boys & Girls', 'Final'];
 
 function getRoundIndex(screen: number): number {
-  if (screen < 3) return -1;
-  if (screen <= 6) return 0;
-  if (screen <= 11) return 1;
-  if (screen <= 15) return 2;
-  if (screen <= 18) return 3;
+  if (screen < 4) return -1;
+  if (screen <= 7) return 0;
+  if (screen <= 12) return 1;
+  if (screen <= 16) return 2;
+  if (screen <= 19) return 3;
   return 3;
 }
 
@@ -30,11 +30,11 @@ export function TopBar() {
         <div className="w-28" />
 
         <div className="flex items-center gap-4 text-center">
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Team Kids</span>
+          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider truncate max-w-[120px]">{state.teamNames.kids}</span>
           <span className="text-3xl font-bold text-gold tabular-nums">{animKids}</span>
           <span className="text-xl text-muted-foreground">:</span>
           <span className="text-3xl font-bold text-gold tabular-nums">{animEltern}</span>
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Team Eltern</span>
+          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider truncate max-w-[120px]">{state.teamNames.eltern}</span>
         </div>
 
         <div className="flex items-center gap-2">

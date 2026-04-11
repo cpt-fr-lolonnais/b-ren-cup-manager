@@ -63,7 +63,20 @@ export const useTournamentStore = create<TournamentStore>((set, get) => ({
       if (saved.round2 && Array.isArray(saved.round2.pairing)) {
         saved.round2.pairing = null;
       }
-      set({ state: saved, loading: false, loaded: true, hasSavedState: true });
+      // Defensive merge: ensure teamNames exists for old saved states
+      const merged: TournamentState = {
+        ...INITIAL_STATE,
+        ...saved,
+        teamNames: {
+          ...INITIAL_STATE.teamNames,
+          ...(saved.teamNames ?? {}),
+        },
+      };
+      // Defensive: if currentScreen is out of bounds for new mapping, reset to 1
+      if (merged.currentScreen < 1 || merged.currentScreen > 21) {
+        merged.currentScreen = 1;
+      }
+      set({ state: merged, loading: false, loaded: true, hasSavedState: true });
     } else {
       set({ loading: false, loaded: true, hasSavedState: false });
     }
