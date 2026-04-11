@@ -4,10 +4,10 @@ import { RankingInput } from '@/components/RankingInput';
 const FINAL_POINTS: Record<number, number> = { 1: 10, 2: 8, 3: 4, 4: 2 };
 const SLOTS = ['kids1', 'kids2', 'eltern1', 'eltern2'];
 const SLOT_LABELS: Record<string, string> = {
-  kids1: 'Kids Slot 1',
-  kids2: 'Kids Slot 2',
-  eltern1: 'Eltern Slot 1',
-  eltern2: 'Eltern Slot 2',
+  kids1: 'Kids Figur 1',
+  kids2: 'Kids Figur 2',
+  eltern1: 'Eltern Figur 1',
+  eltern2: 'Eltern Figur 2',
 };
 
 // Custom slot avatar component
@@ -50,7 +50,7 @@ export function ScreenFinalResult() {
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 slide-up">
       <h2 className="text-2xl font-bold text-gold mb-1">Final GP — Resultat</h2>
-      <p className="text-muted-foreground mb-8">Endplatzierung der 4 Slots eintragen</p>
+      <p className="text-muted-foreground mb-8">Endplatzierung der 4 Figuren eintragen</p>
 
       {/* Custom ranking for slots since they aren't players */}
       <div className="space-y-3 mb-8">

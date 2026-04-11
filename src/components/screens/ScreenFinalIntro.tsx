@@ -8,7 +8,7 @@ export function ScreenFinalIntro() {
       <h2 className="text-3xl font-bold text-gold mb-6">Final GP</h2>
 
       <p className="text-foreground/90 leading-relaxed mb-6">
-        Der Final-GP geht über 4 Rennen mit 4 Startplätzen. Jedes Team belegt 2 Slots im Spiel. Pro Rennen können die Spieler innerhalb des Teams rotieren — wichtig: jeder der 8 Spieler muss mindestens 2 der 4 Rennen fahren. Am Ende zählt die Endrangliste der 4 Slots: Platz 1 = 10, Platz 2 = 8, Platz 3 = 4, Platz 4 = 2 Punkte für das jeweilige Team.
+        Der Final-GP geht über 4 Rennen mit 4 Figuren. Jedes Team belegt 2 Figuren im Spiel. Pro Rennen können die Spieler innerhalb des Teams rotieren — wichtig: jeder der 8 Spieler muss mindestens 2 der 4 Rennen fahren. Am Ende zählt die Endrangliste der 4 Figuren: Platz 1 = 10, Platz 2 = 8, Platz 3 = 4, Platz 4 = 2 Punkte für das jeweilige Team.
       </p>
 
       <div className="flex justify-between">
