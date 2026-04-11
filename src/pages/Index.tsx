@@ -70,6 +70,7 @@ export default function Index() {
     <div className="min-h-screen">
       {showTopBar && <TopBar />}
       <ScreenComponent />
+      {showTopBar && <ResetButton />}
     </div>
   );
 }
