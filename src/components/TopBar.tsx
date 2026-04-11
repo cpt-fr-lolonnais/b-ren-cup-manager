@@ -1,5 +1,6 @@
 import { getTotalScore } from '@/lib/scoring';
 import { useTournamentStore } from '@/lib/store';
+import { useCountUp } from '@/hooks/useCountUp';
 
 const ROUND_NAMES = ['Warm-Up', 'Mixed', 'Boys & Girls', 'Final'];
 
@@ -16,6 +17,8 @@ export function TopBar() {
   const state = useTournamentStore(s => s.state);
   const score = getTotalScore(state);
   const currentRound = getRoundIndex(state.currentScreen);
+  const animKids = useCountUp(score.kids, 800);
+  const animEltern = useCountUp(score.eltern, 800);
 
   return (
     <div className="w-full border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50 relative">
@@ -28,9 +31,9 @@ export function TopBar() {
 
         <div className="flex items-center gap-4 text-center">
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Team Kids</span>
-          <span className="text-3xl font-bold text-gold tabular-nums">{score.kids}</span>
+          <span className="text-3xl font-bold text-gold tabular-nums">{animKids}</span>
           <span className="text-xl text-muted-foreground">:</span>
-          <span className="text-3xl font-bold text-gold tabular-nums">{score.eltern}</span>
+          <span className="text-3xl font-bold text-gold tabular-nums">{animEltern}</span>
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Team Eltern</span>
         </div>
 
