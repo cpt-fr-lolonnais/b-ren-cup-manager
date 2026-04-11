@@ -35,7 +35,6 @@ export function ScreenSummary() {
           <h2 className="text-3xl font-bold text-gold">Turnier-Auswertung</h2>
         </div>
 
-        {/* Chart */}
         <div className="bg-card rounded-xl p-6 border border-border mb-8">
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data}>
@@ -47,26 +46,24 @@ export function ScreenSummary() {
                 labelStyle={{ color: 'white' }}
               />
               <Legend />
-              <Line type="monotone" dataKey="kids" stroke="#F5C518" strokeWidth={3} name="Team Kids" dot={{ r: 5 }} />
-              <Line type="monotone" dataKey="eltern" stroke="#C0C0C0" strokeWidth={3} name="Team Eltern" dot={{ r: 5 }} />
+              <Line type="monotone" dataKey="kids" stroke="#F5C518" strokeWidth={3} name={state.teamNames.kids} dot={{ r: 5 }} />
+              <Line type="monotone" dataKey="eltern" stroke="#C0C0C0" strokeWidth={3} name={state.teamNames.eltern} dot={{ r: 5 }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Final score */}
         <div className="flex justify-center gap-8 mb-8">
           <div className="text-center">
-            <p className="text-sm text-muted-foreground">Team Kids</p>
+            <p className="text-sm text-muted-foreground">{state.teamNames.kids}</p>
             <p className="text-4xl font-bold text-gold">{total.kids}</p>
           </div>
           <span className="text-3xl text-muted-foreground self-center">:</span>
           <div className="text-center">
-            <p className="text-sm text-muted-foreground">Team Eltern</p>
+            <p className="text-sm text-muted-foreground">{state.teamNames.eltern}</p>
             <p className="text-4xl font-bold text-gold">{total.eltern}</p>
           </div>
         </div>
 
-        {/* Breakdown */}
         <div className="space-y-3">
           <h3 className="text-lg font-bold text-gold">Runden-Details</h3>
           <div className="grid grid-cols-4 gap-3">
@@ -87,7 +84,7 @@ export function ScreenSummary() {
       </div>
 
       <div className="flex justify-between mt-8">
-        <button onClick={() => setScreen(19)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => setScreen(20)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
           Zurück zum Sieger-Screen
         </button>
         <button onClick={exportPng} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">

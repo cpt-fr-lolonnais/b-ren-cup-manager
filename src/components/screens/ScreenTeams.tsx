@@ -10,18 +10,16 @@ const STAGES = [
 ];
 
 export function ScreenTeams() {
-  const { setScreen } = useTournamentStore();
+  const { state, setScreen } = useTournamentStore();
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 slide-up">
-      {/* Title */}
       <h1 className="text-5xl font-bold text-gold text-center tracking-wider mb-1">BÄREN CUP</h1>
       <p className="text-lg text-muted-foreground text-center mb-8">Kids gegen Eltern in 4 Runden</p>
 
-      {/* Teams */}
       <div className="flex items-center gap-4 mb-8">
         <div className="flex-1 bg-card rounded-xl p-5 border border-border text-center">
-          <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">Team Kids</h3>
+          <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">{state.teamNames.kids}</h3>
           <div className="flex justify-center gap-6">
             {KIDS.map(p => (
               <div key={p.id} className="flex flex-col items-center gap-1">
@@ -35,7 +33,7 @@ export function ScreenTeams() {
         <span className="text-3xl font-bold text-gold italic shrink-0">vs</span>
 
         <div className="flex-1 bg-card rounded-xl p-5 border border-border text-center">
-          <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">Team Eltern</h3>
+          <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">{state.teamNames.eltern}</h3>
           <div className="flex justify-center gap-6">
             {ELTERN.map(p => (
               <div key={p.id} className="flex flex-col items-center gap-1">
@@ -47,7 +45,6 @@ export function ScreenTeams() {
         </div>
       </div>
 
-      {/* Roadmap */}
       <p className="text-lg text-gold font-bold text-center mb-4">Der Weg zum Bären Cup</p>
 
       <div className="flex items-start gap-0 mb-6">
@@ -74,8 +71,8 @@ export function ScreenTeams() {
       </div>
 
       <div className="flex justify-center">
-        <button onClick={() => setScreen(3)} className="px-10 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
-          Los geht's!
+        <button onClick={() => setScreen(4)} className="px-10 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+          3, 2, 1 — GO!
         </button>
       </div>
     </div>

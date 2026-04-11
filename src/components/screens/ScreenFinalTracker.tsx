@@ -23,20 +23,18 @@ export function ScreenFinalTracker() {
     }));
   };
 
-  // Count kids/eltern selected per race
   const kidsPerRace = RACES.map((_, ri) => KIDS_ORDER.filter(id => getRaces(id)[ri]).length);
   const elternPerRace = RACES.map((_, ri) => ELTERN_ORDER.filter(id => getRaces(id)[ri]).length);
 
   const isDisabled = (playerId: string, raceIndex: number, group: 'kids' | 'eltern') => {
     const playerRaces = getRaces(playerId);
-    if (playerRaces[raceIndex]) return false; // always allow uncheck
+    if (playerRaces[raceIndex]) return false;
     const playerCount = playerRaces.filter(Boolean).length;
     if (playerCount >= 2) return true;
     const count = group === 'kids' ? kidsPerRace[raceIndex] : elternPerRace[raceIndex];
     return count >= 2;
   };
 
-  // Validation
   const allPlayersValid = [...KIDS_ORDER, ...ELTERN_ORDER].every(id => getRaces(id).filter(Boolean).length >= 2);
   const allRacesValid = RACES.every((_, ri) => kidsPerRace[ri] === 2 && elternPerRace[ri] === 2);
   const canProceed = allPlayersValid && allRacesValid;
@@ -145,9 +143,9 @@ export function ScreenFinalTracker() {
       )}
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(16)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(17)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button
-          onClick={() => setScreen(18)}
+          onClick={() => setScreen(19)}
           disabled={!canProceed}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >

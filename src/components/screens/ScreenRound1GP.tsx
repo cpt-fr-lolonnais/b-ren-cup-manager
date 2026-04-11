@@ -44,16 +44,16 @@ export function ScreenRound1Kids() {
       </div>
 
       <div className="text-center mb-8">
-        <span className="text-muted-foreground">Team Kids Total: </span>
+        <span className="text-muted-foreground">{state.teamNames.kids} Total: </span>
         <span className="text-3xl font-bold text-gold">{total}</span>
       </div>
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(3)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => setScreen(4)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
           Zurück
         </button>
         <button
-          onClick={() => setScreen(5)}
+          onClick={() => setScreen(6)}
           disabled={!allFilled}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
@@ -91,7 +91,7 @@ export function ScreenRound1Eltern() {
           completed: true,
           winnerTeam: kidsTotal > elternTotal ? 'kids' : elternTotal > kidsTotal ? 'eltern' : 'tie',
         },
-        currentScreen: 6,
+        currentScreen: 7,
       };
     });
   };
@@ -121,12 +121,12 @@ export function ScreenRound1Eltern() {
       </div>
 
       <div className="text-center mb-8">
-        <span className="text-muted-foreground">Team Eltern Total: </span>
+        <span className="text-muted-foreground">{state.teamNames.eltern} Total: </span>
         <span className="text-3xl font-bold text-gold">{total}</span>
       </div>
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(4)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => setScreen(5)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
           Zurück
         </button>
         <button

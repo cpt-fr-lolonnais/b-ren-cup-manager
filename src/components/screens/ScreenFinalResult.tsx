@@ -10,7 +10,6 @@ const SLOT_LABELS: Record<string, string> = {
   eltern2: 'Eltern Figur 2',
 };
 
-// Custom slot avatar component
 function SlotAvatar({ slotId }: { slotId: string }) {
   const isKids = slotId.startsWith('kids');
   return (
@@ -28,7 +27,6 @@ export function ScreenFinalResult() {
   const ranking = state.final.slotRanking;
   const allRanked = Object.keys(ranking).length === 4;
 
-  // Calculate team totals
   let kidsTotal = 0, elternTotal = 0;
   if (allRanked) {
     for (const [slot, rank] of Object.entries(ranking)) {
@@ -41,7 +39,7 @@ export function ScreenFinalResult() {
   const finish = () => {
     setState(prev => ({
       final: { ...prev.final, completed: true },
-      currentScreen: 19,
+      currentScreen: 20,
     }));
   };
 
@@ -50,7 +48,6 @@ export function ScreenFinalResult() {
       <h2 className="text-2xl font-bold text-gold mb-1">Final GP — Resultat</h2>
       <p className="text-muted-foreground mb-8">Endplatzierung der 4 Figuren eintragen</p>
 
-      {/* Custom ranking for slots since they aren't players */}
       <div className="space-y-3 mb-8">
         {SLOTS.map(slotId => {
           const currentRank = ranking[slotId];
@@ -107,18 +104,18 @@ export function ScreenFinalResult() {
       {allRanked && (
         <div className="flex justify-center gap-8 mb-8">
           <div className="text-center">
-            <p className="text-sm text-muted-foreground">Team Kids</p>
+            <p className="text-sm text-muted-foreground">{state.teamNames.kids}</p>
             <p className="text-3xl font-bold text-gold">{kidsTotal}</p>
           </div>
           <div className="text-center">
-            <p className="text-sm text-muted-foreground">Team Eltern</p>
+            <p className="text-sm text-muted-foreground">{state.teamNames.eltern}</p>
             <p className="text-3xl font-bold text-gold">{elternTotal}</p>
           </div>
         </div>
       )}
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(17)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(18)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button onClick={finish} disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed">
           Turnier beenden

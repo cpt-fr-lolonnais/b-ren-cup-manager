@@ -34,12 +34,11 @@ const SLOTS: { id: SlotId; gp: number; type: 'kids' | 'eltern'; label: string }[
   { id: 'gp2-eltern', gp: 2, type: 'eltern', label: 'Eltern-Team' },
 ];
 
-/* ── Draggable team card ── */
 function TeamCard({ teamId, overlay }: { teamId: TeamId; overlay?: boolean }) {
   const team = TEAMS[teamId];
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({ id: teamId });
 
-  const content = (
+  return (
     <div
       ref={overlay ? undefined : setNodeRef}
       {...(overlay ? {} : { ...listeners, ...attributes })}
@@ -54,10 +53,8 @@ function TeamCard({ teamId, overlay }: { teamId: TeamId; overlay?: boolean }) {
       ))}
     </div>
   );
-  return content;
 }
 
-/* ── Droppable slot ── */
 function DropSlot({
   slotId,
   label,
@@ -97,11 +94,9 @@ function DropSlot({
   );
 }
 
-/* ── Main component ── */
 export function ScreenRound2Pairing() {
   const { state, setState, setScreen } = useTournamentStore();
 
-  // Rehydrate placements from store if pairing exists (for back-navigation)
   const initPlacements = (): Record<SlotId, TeamId | null> => {
     const p = state.round2.pairing;
     if (p && typeof p === 'object' && 'gp1' in p) {
@@ -116,15 +111,11 @@ export function ScreenRound2Pairing() {
   };
 
   const [placements, setPlacements] = useState<Record<SlotId, TeamId | null>>(initPlacements);
-
   const [activeId, setActiveId] = useState<TeamId | null>(null);
   const activeType = activeId ? TEAMS[activeId].type : null;
-
   const placedTeams = new Set(Object.values(placements).filter(Boolean) as TeamId[]);
   const poolTeams = (Object.keys(TEAMS) as TeamId[]).filter(t => !placedTeams.has(t));
-
   const allFilled = Object.values(placements).every(Boolean);
-
 
   const handleDragStart = useCallback((e: DragStartEvent) => {
     setActiveId(e.active.id as TeamId);
@@ -134,14 +125,12 @@ export function ScreenRound2Pairing() {
     setActiveId(null);
     const { active, over } = e;
     if (!over) return;
-
     const teamId = active.id as TeamId;
     const slotId = over.id as SlotId;
     const slot = SLOTS.find(s => s.id === slotId);
     if (!slot) return;
     if (TEAMS[teamId].type !== slot.type) return;
     if (placements[slotId]) return;
-
     setPlacements(prev => ({ ...prev, [slotId]: teamId }));
   }, [placements]);
 
@@ -150,16 +139,14 @@ export function ScreenRound2Pairing() {
 
   const confirm = () => {
     const toNum = (id: TeamId): 1 | 2 => id.endsWith('1') ? 1 : 2;
-
     const pairing = {
       gp1: { kidsTeam: toNum(placements['gp1-kids']!), elternTeam: toNum(placements['gp1-eltern']!) },
       gp2: { kidsTeam: toNum(placements['gp2-kids']!), elternTeam: toNum(placements['gp2-eltern']!) },
     };
-
     setState(prev => ({
       round2: { ...prev.round2, pairing },
     }));
-    setScreen(9);
+    setScreen(10);
   };
 
   return (
@@ -167,12 +154,7 @@ export function ScreenRound2Pairing() {
       <h2 className="text-2xl font-bold text-gold mb-1">Paarungen festlegen</h2>
       <p className="text-muted-foreground mb-8">Kids, zieht die Teams in die GP-Slots</p>
 
-      <DndContext
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
-        collisionDetection={pointerWithin}
-      >
-        {/* GP boxes */}
+      <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd} collisionDetection={pointerWithin}>
         <div className="grid grid-cols-2 gap-6 mb-8">
           {[1, 2].map(gp => (
             <div key={gp} className="bg-card/50 rounded-xl border border-border/50 p-4">
@@ -195,7 +177,6 @@ export function ScreenRound2Pairing() {
           ))}
         </div>
 
-        {/* Pool */}
         {poolTeams.length > 0 && (
           <div className="mb-8">
             <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">Verfügbare Teams</p>
@@ -213,18 +194,12 @@ export function ScreenRound2Pairing() {
       </DndContext>
 
       <div className="flex justify-between items-center">
-        <button
-          onClick={() => setScreen(7)}
-          className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors"
-        >
+        <button onClick={() => setScreen(8)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
           Zurück
         </button>
         <div className="flex gap-3">
           {placedTeams.size > 0 && (
-            <button
-              onClick={reset}
-              className="px-5 py-3 text-muted-foreground hover:text-foreground border border-border rounded-lg transition-colors"
-            >
+            <button onClick={reset} className="px-5 py-3 text-muted-foreground hover:text-foreground border border-border rounded-lg transition-colors">
               Reset
             </button>
           )}

@@ -73,8 +73,8 @@ export function ScreenRound2Intro() {
       </div>
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(6)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
-        <button onClick={() => setScreen(8)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+        <button onClick={() => setScreen(7)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(9)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Paarungen festlegen
         </button>
       </div>

@@ -36,9 +36,9 @@ export function ScreenRound2GP1() {
       )}
 
       <div className="flex justify-between mt-8">
-        <button onClick={() => setScreen(8)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(9)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button
-          onClick={() => setScreen(10)}
+          onClick={() => setScreen(11)}
           disabled={!allRanked}
           className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
@@ -61,7 +61,7 @@ export function ScreenRound2GP2() {
   const finish = () => {
     setState(prev => ({
       round2: { ...prev.round2, completed: true },
-      currentScreen: 11,
+      currentScreen: 12,
     }));
   };
 
@@ -90,7 +90,7 @@ export function ScreenRound2GP2() {
       )}
 
       <div className="flex justify-between mt-8">
-        <button onClick={() => setScreen(9)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(10)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
         <button
           onClick={finish}
           disabled={!allRanked}

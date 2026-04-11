@@ -14,18 +14,18 @@ export function ScreenRound2Result() {
 
       <div className="grid grid-cols-2 gap-8 mb-10">
         <div className="bg-card rounded-xl p-8 border border-border">
-          <p className="text-muted-foreground mb-2">Team Kids</p>
+          <p className="text-muted-foreground mb-2">{state.teamNames.kids}</p>
           <p className="text-5xl font-bold text-gold">+{animKids}</p>
         </div>
         <div className="bg-card rounded-xl p-8 border border-border">
-          <p className="text-muted-foreground mb-2">Team Eltern</p>
+          <p className="text-muted-foreground mb-2">{state.teamNames.eltern}</p>
           <p className="text-5xl font-bold text-gold">+{animEltern}</p>
         </div>
       </div>
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(10)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
-        <button onClick={() => setScreen(12)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+        <button onClick={() => setScreen(11)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">Zurück</button>
+        <button onClick={() => setScreen(13)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Weiter zum Boys & Girls GP
         </button>
       </div>

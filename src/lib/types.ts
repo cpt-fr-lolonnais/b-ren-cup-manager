@@ -4,6 +4,10 @@ export interface RoundRanking {
 
 export interface TournamentState {
   currentScreen: number;
+  teamNames: {
+    kids: string;
+    eltern: string;
+  };
   round1: {
     kidsGpPoints: { [playerId: string]: number | null };
     elternGpPoints: { [playerId: string]: number | null };
@@ -33,6 +37,10 @@ export interface TournamentState {
 
 export const INITIAL_STATE: TournamentState = {
   currentScreen: 1,
+  teamNames: {
+    kids: 'Team Kids',
+    eltern: 'Team Eltern',
+  },
   round1: {
     kidsGpPoints: { elina: null, mio: null, milena: null, valerio: null },
     elternGpPoints: { nicole: null, maethu: null, carmen: null, micha: null },

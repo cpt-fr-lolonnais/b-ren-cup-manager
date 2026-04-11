@@ -10,7 +10,7 @@ export function ScreenRound1Result() {
   const animatedKids = useCountUp(kidsTotal, 800);
   const animatedEltern = useCountUp(elternTotal, 800);
 
-  const winnerName = winner === 'kids' ? 'Team Kids' : winner === 'eltern' ? 'Team Eltern' : 'Unentschieden';
+  const winnerName = winner === 'kids' ? state.teamNames.kids : winner === 'eltern' ? state.teamNames.eltern : 'Unentschieden';
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 slide-up text-center">
@@ -18,11 +18,11 @@ export function ScreenRound1Result() {
 
       <div className="grid grid-cols-2 gap-8 mb-10">
         <div className="bg-card rounded-xl p-8 border border-border">
-          <p className="text-muted-foreground mb-2">Team Kids</p>
+          <p className="text-muted-foreground mb-2">{state.teamNames.kids}</p>
           <p className="text-5xl font-bold text-gold">{animatedKids}</p>
         </div>
         <div className="bg-card rounded-xl p-8 border border-border">
-          <p className="text-muted-foreground mb-2">Team Eltern</p>
+          <p className="text-muted-foreground mb-2">{state.teamNames.eltern}</p>
           <p className="text-5xl font-bold text-gold">{animatedEltern}</p>
         </div>
       </div>
@@ -41,10 +41,10 @@ export function ScreenRound1Result() {
       </div>
 
       <div className="flex justify-between">
-        <button onClick={() => setScreen(5)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => setScreen(6)} className="px-6 py-3 text-muted-foreground hover:text-foreground transition-colors">
           Zurück
         </button>
-        <button onClick={() => setScreen(7)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
+        <button onClick={() => setScreen(8)} className="px-8 py-3 bg-gold text-primary-foreground font-bold rounded-lg hover:opacity-90 transition-opacity">
           Weiter zum Mixed GP
         </button>
       </div>
