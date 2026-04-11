@@ -30,11 +30,11 @@ export function TopBar() {
         <div className="w-28" />
 
         <div className="flex items-center gap-4 text-center">
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider truncate max-w-[120px]">{state.teamNames.kids}</span>
+          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider truncate max-w-[180px]">{state.teamNames.kids}</span>
           <span className="text-3xl font-bold text-gold tabular-nums">{animKids}</span>
           <span className="text-xl text-muted-foreground">:</span>
           <span className="text-3xl font-bold text-gold tabular-nums">{animEltern}</span>
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider truncate max-w-[120px]">{state.teamNames.eltern}</span>
+          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider truncate max-w-[180px]">{state.teamNames.eltern}</span>
         </div>
 
         <div className="flex items-center gap-2">
