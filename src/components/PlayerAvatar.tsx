@@ -18,7 +18,7 @@ export function PlayerAvatar({ playerId, size = 'md', showName = true }: PlayerA
 
   return (
     <div className="flex items-center gap-2">
-      <div className={`${sizeClasses[size]} ${player.color} rounded-full flex items-center justify-center font-bold text-foreground shrink-0`}>
+      <div className={`${sizeClasses[size]} rounded-full flex items-center justify-center font-bold text-white shrink-0`} style={{ backgroundColor: player.colorHex }}>
         {player.initials}
       </div>
       {showName && <span className="text-foreground font-medium">{player.name}</span>}
