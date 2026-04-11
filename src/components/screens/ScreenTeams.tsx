@@ -22,7 +22,7 @@ export function ScreenTeams() {
       <div className="flex items-center gap-4 mb-8">
         <div className="flex-1 bg-card rounded-xl p-5 border border-border text-center">
           <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">Team Kids</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="flex justify-center gap-6">
             {KIDS.map(p => (
               <div key={p.id} className="flex flex-col items-center gap-1">
                 <PlayerAvatar playerId={p.id} size="md" showName={false} />
@@ -36,7 +36,7 @@ export function ScreenTeams() {
 
         <div className="flex-1 bg-card rounded-xl p-5 border border-border text-center">
           <h3 className="text-sm font-bold text-gold uppercase tracking-wider mb-3">Team Eltern</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="flex justify-center gap-6">
             {ELTERN.map(p => (
               <div key={p.id} className="flex flex-col items-center gap-1">
                 <PlayerAvatar playerId={p.id} size="md" showName={false} />

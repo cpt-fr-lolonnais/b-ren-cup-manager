@@ -12,7 +12,7 @@ export function ScreenRound2Intro() {
       <ul className="space-y-2 mb-6">
         <li className="flex items-start gap-2 text-foreground/90">
           <span className="text-gold mt-0.5">&#9670;</span>
-          <span>Ein Mädchen und ein Junge aus beiden Familien zusammen im Team — bei den Kids und bei den Eltern</span>
+          <span>Mädchen und Jungs gemischt — quer über die Familien</span>
         </li>
         <li className="flex items-start gap-2 text-foreground/90">
           <span className="text-gold mt-0.5">&#9670;</span>

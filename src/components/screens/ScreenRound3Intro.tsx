@@ -12,7 +12,11 @@ export function ScreenRound3Intro() {
       <ul className="space-y-2 mb-6">
         <li className="flex items-start gap-2 text-foreground/90">
           <span className="text-gold mt-0.5">&#9670;</span>
-          <span>GP 1: Jungs vs. Papas</span>
+          <span>Jetzt wird's spannend: Mädchen gegen Mädchen, Jungs gegen Jungs</span>
+        </li>
+        <li className="flex items-start gap-2 text-foreground/90">
+          <span className="text-gold mt-0.5">&#9670;</span>
+          <span>GP 1: Boys vs. Papas</span>
         </li>
         <li className="flex items-start gap-2 text-foreground/90">
           <span className="text-gold mt-0.5">&#9670;</span>
