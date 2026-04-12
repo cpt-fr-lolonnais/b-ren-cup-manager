@@ -78,7 +78,8 @@ export const useTournamentStore = create<TournamentStore>((set, get) => ({
       if (merged.currentScreen < 1 || merged.currentScreen > 21) {
         merged.currentScreen = 1;
       }
-      set({ state: merged, loading: false, loaded: true, hasSavedState: true });
+      const isMeaningful = merged.currentScreen > 1;
+      set({ state: merged, loading: false, loaded: true, hasSavedState: isMeaningful });
     } else {
       set({ loading: false, loaded: true, hasSavedState: false });
     }
