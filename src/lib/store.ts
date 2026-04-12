@@ -11,6 +11,7 @@ interface TournamentStore {
   loading: boolean;
   loaded: boolean;
   hasSavedState: boolean;
+  resetCounter: number;
   setState: (updater: (prev: TournamentState) => Partial<TournamentState>) => void;
   setScreen: (screen: number) => void;
   loadState: () => Promise<void>;
@@ -33,6 +34,7 @@ export const useTournamentStore = create<TournamentStore>((set, get) => ({
   loading: true,
   loaded: false,
   hasSavedState: false,
+  resetCounter: 0,
 
   setState: (updater) => {
     const current = get().state;
@@ -83,7 +85,11 @@ export const useTournamentStore = create<TournamentStore>((set, get) => ({
   },
 
   resetState: () => {
-    set({ state: INITIAL_STATE, hasSavedState: false });
+    set(s => ({
+      state: INITIAL_STATE,
+      hasSavedState: false,
+      resetCounter: s.resetCounter + 1,
+    }));
     debouncedSave(INITIAL_STATE);
   },
 }));
