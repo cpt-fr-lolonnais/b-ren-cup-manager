@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTournamentStore } from '@/lib/store';
 import { TopBar } from '@/components/TopBar';
 import { ResetButton } from '@/components/ResetButton';
+import { IntroSplash } from '@/components/IntroSplash';
+import { IntroVideo } from '@/components/IntroVideo';
 import { ScreenStartPage } from '@/components/screens/ScreenStart';
 import { ScreenTeamNames } from '@/components/screens/ScreenTeamNames';
 import { ScreenTeams } from '@/components/screens/ScreenTeams';
@@ -47,16 +49,38 @@ const SCREENS: Record<number, React.ComponentType> = {
 
 const HIDE_TOPBAR = [1, 2, 20];
 
+type IntroPhase = 'splash' | 'video' | 'done' | null;
+
 export default function Index() {
-  const { state, loading, loadState } = useTournamentStore();
+  const { state, loading, loaded, hasSavedState, loadState } = useTournamentStore();
+  const [introPhase, setIntroPhase] = useState<IntroPhase>(null);
+  const prevHasSavedState = useRef<boolean | null>(null);
 
   useEffect(() => {
     loadState();
   }, [loadState]);
 
-  if (loading) {
+  // Initialize intro phase once store has loaded
+  useEffect(() => {
+    if (!loading && loaded) {
+      if (introPhase === null) {
+        setIntroPhase(hasSavedState ? 'done' : 'splash');
+      }
+    }
+  }, [loading, loaded, hasSavedState, introPhase]);
+
+  // Replay intro when reset happens (hasSavedState flips true → false)
+  useEffect(() => {
+    if (loaded && prevHasSavedState.current === true && hasSavedState === false) {
+      setIntroPhase('splash');
+    }
+    prevHasSavedState.current = hasSavedState;
+  }, [hasSavedState, loaded]);
+
+  // Show nothing while loading or phase undetermined
+  if (loading || introPhase === null) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-black">
         <div className="text-center space-y-4">
           <img src="/logo.png" alt="Bären Cup" className="w-24 h-24 object-contain mx-auto animate-pulse" />
           <p className="text-muted-foreground">Lade Turnier...</p>
@@ -70,9 +94,12 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
-      {showTopBar && <TopBar />}
+      {showTopBar && introPhase === 'done' && <TopBar />}
       <ScreenComponent />
-      {showTopBar && <ResetButton />}
+      {showTopBar && introPhase === 'done' && <ResetButton />}
+
+      {introPhase === 'splash' && <IntroSplash onPlay={() => setIntroPhase('video')} />}
+      {introPhase === 'video' && <IntroVideo onComplete={() => setIntroPhase('done')} />}
     </div>
   );
 }
