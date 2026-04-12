@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTournamentStore } from '@/lib/store';
 import { TopBar } from '@/components/TopBar';
 import { ResetButton } from '@/components/ResetButton';
@@ -52,9 +52,8 @@ const HIDE_TOPBAR = [1, 2, 20];
 type IntroPhase = 'splash' | 'video' | 'done' | null;
 
 export default function Index() {
-  const { state, loading, loaded, hasSavedState, loadState } = useTournamentStore();
+  const { state, loading, loaded, hasSavedState, loadState, resetCounter } = useTournamentStore();
   const [introPhase, setIntroPhase] = useState<IntroPhase>(null);
-  const prevHasSavedState = useRef<boolean | null>(null);
 
   useEffect(() => {
     loadState();
@@ -69,13 +68,12 @@ export default function Index() {
     }
   }, [loading, loaded, hasSavedState, introPhase]);
 
-  // Replay intro when reset happens (hasSavedState flips true → false)
+  // Replay intro when reset happens
   useEffect(() => {
-    if (loaded && prevHasSavedState.current === true && hasSavedState === false) {
+    if (resetCounter > 0) {
       setIntroPhase('splash');
     }
-    prevHasSavedState.current = hasSavedState;
-  }, [hasSavedState, loaded]);
+  }, [resetCounter]);
 
   // Show nothing while loading or phase undetermined
   if (loading || introPhase === null) {
