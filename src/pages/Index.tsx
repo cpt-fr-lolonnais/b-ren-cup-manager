@@ -52,7 +52,7 @@ const HIDE_TOPBAR = [1, 2, 20];
 type IntroPhase = 'splash' | 'video' | 'done' | null;
 
 export default function Index() {
-  const { state, loading, loadState } = useTournamentStore();
+  const { state, loading, loaded, hasSavedState, loadState } = useTournamentStore();
   const [introPhase, setIntroPhase] = useState<IntroPhase>(null);
   const prevHasSavedState = useRef<boolean | null>(null);
 
@@ -62,20 +62,20 @@ export default function Index() {
 
   // Initialize intro phase once store has loaded
   useEffect(() => {
-    if (!loading && state.loaded) {
+    if (!loading && loaded) {
       if (introPhase === null) {
-        setIntroPhase(state.hasSavedState ? 'done' : 'splash');
+        setIntroPhase(hasSavedState ? 'done' : 'splash');
       }
     }
-  }, [loading, state.loaded, state.hasSavedState, introPhase]);
+  }, [loading, loaded, hasSavedState, introPhase]);
 
   // Replay intro when reset happens (hasSavedState flips true → false)
   useEffect(() => {
-    if (state.loaded && prevHasSavedState.current === true && state.hasSavedState === false) {
+    if (loaded && prevHasSavedState.current === true && hasSavedState === false) {
       setIntroPhase('splash');
     }
-    prevHasSavedState.current = state.hasSavedState;
-  }, [state.hasSavedState, state.loaded]);
+    prevHasSavedState.current = hasSavedState;
+  }, [hasSavedState, loaded]);
 
   // Show nothing while loading or phase undetermined
   if (loading || introPhase === null) {
